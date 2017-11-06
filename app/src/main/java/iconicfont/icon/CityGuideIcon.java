@@ -10,6 +10,10 @@ public enum CityGuideIcon implements Icon {
 
     ICON_NEW_GOODS(0xE757),
 
+    ICON_ADD_IMG(0xe6f0),
+
+    ICON_CLOSE(0xe6dc),
+
     ICON_TIME(0xE698),
 
     ICON_GO(0xE675),

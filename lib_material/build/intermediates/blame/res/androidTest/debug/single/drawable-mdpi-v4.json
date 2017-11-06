@@ -16,12 +16,12 @@
         "source": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.0/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/abc_ic_star_black_36dp.png",
-        "source": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.0/res/drawable-mdpi-v4/abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/abc_list_focused_holo.9.png",
         "source": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.0/res/drawable-mdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/abc_ic_star_black_36dp.png",
+        "source": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.0/res/drawable-mdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
         "merged": "/Users/zhengheng/Downloads/Savemoney/lib_material/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/abc_ic_star_black_48dp.png",

@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 import common.base.AppBaseCompatActivity;
 import so.bubu.lib.helper.AppManager;
 import so.bubu.lib.helper.NavigationHelper;
+import so.bubu.lib.helper.StatusBarUtil;
 import so.bubu.lib.helper.ToastHelper;
 import so.bubu.Coupon.AliTrade.R;
 import wiget.Html5Webview;
@@ -34,6 +35,7 @@ public class WebViewActivity extends AppBaseCompatActivity {
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
         webview = new Html5Webview(this);
         setContentView(webview.getLayout());
         String url = null;

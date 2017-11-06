@@ -40,7 +40,7 @@
                 android:textColor="@android:color/black"
                 android:text="aaa"
                 android:layout_gravity="top"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:id="@+id/discountPrice_ll"
@@ -48,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/taobao_pro_desc"
                 android:layout_marginTop="6dp"
-
                 android:orientation="horizontal">
 
                 <ImageView
@@ -71,6 +70,17 @@
                     android:textColor="@color/color_b2b2b2"
                     />
 
+                <TextView
+                    android:id="@+id/biz30Day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_b2b2b2"
+                    />
+
             </LinearLayout>
 
 
@@ -86,8 +96,7 @@
                     android:textColor="@color/color_ff6f06"
                     android:gravity="center"
                     android:layout_alignParentBottom="true"
-                    android:textSize="12sp"
-                    android:paddingBottom="4dp"
+                    android:textSize="13sp"
                     android:text="劵后¥"/>
 
 
@@ -98,15 +107,16 @@
                     android:textColor="@color/color_ff5000"
                     android:layout_toRightOf="@+id/taobao_much"
                     android:layout_alignParentBottom="true"
-                    android:textSize="24sp"
+                    android:textSize="23sp"
                     android:layout_marginLeft="1dp"
+                    android:layout_alignBaseline="@+id/taobao_much"
                     android:text="价格"/>
 
                 <TextView
                     android:id="@+id/couponAmount"
                     android:layout_width="95dp"
                     android:layout_height="24dp"
-                    android:text="立减 30 元"
+                    android:text="优惠卷"
                     android:gravity="center"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"

@@ -22,25 +22,8 @@
             android:id="@+id/rl_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_top_height"
+            android:layout_marginLeft="20dp"
             android:background="@android:color/white">
-
-            <FrameLayout
-                android:id="@+id/iv_back_poi"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <ImageView
-                    android:id="@+id/iv_back_poi_imageview"
-                    android:layout_width="@dimen/icon_mini_height"
-                    android:layout_height="@dimen/icon_mini_height"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:gravity="center" />
-            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/tv_search"
@@ -59,19 +42,6 @@
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </FrameLayout>
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_centerInParent="true"
-                android:ellipsize="marquee"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/text_city_search_result"
-                android:textColor="@android:color/black"
-                android:textSize="19sp"
-                android:visibility="gone"/>
 
             <LinearLayout
                 android:id="@+id/et_search"
@@ -170,29 +140,5 @@
         </ScrollView>
 
     </LinearLayout>
-
-
-    <com.cjj.MaterialRefreshLayout
-        android:id="@+id/mrl_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:isLoadMore="true"
-        app:overlay="false"
-        android:layout_marginTop="44.5dp"
-        app:progress_colors="@array/text_more_anim"
-        app:progress_size_type="normal"
-        app:wave_color="@color/color_tab_line"
-        app:wave_height_type="normal"
-        app:wave_show="true">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/lv_search"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animationCache="false"
-        android:background="@android:color/white"
-        style="@style/BaseRecyclerView"
-        android:scrollingCache="false" />
-    </com.cjj.MaterialRefreshLayout>
 
 </FrameLayout>

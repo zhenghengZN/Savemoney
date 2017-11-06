@@ -13,7 +13,8 @@ import java.util.List;
 
 
 import app.CommonData;
-import bean.TaobaoContentBean;
+
+import bean.TaobaoCoupons;
 import common.CommonMethod;
 import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.ResourceHelper;
@@ -41,7 +42,6 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
         this.searchType = searchType;
         this.act = act;
         this.dataList = dataList;
-        LogUtil.log.e("searchType","searchType" + searchType);
     }
 
     @Override
@@ -70,20 +70,20 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
-        if (searchType == CommonData.TAOBAO) {
-            showItem(viewHolder, (TaobaoContentBean) dataList.get(position));
-        }
+        TaobaoCoupons.ObjectsBean taobaoContentBean = (TaobaoCoupons.ObjectsBean) dataList.get(position);
+        showItem(viewHolder, taobaoContentBean);
+
 
     }
 
-    private void showItem(ViewHolder viewHolder, TaobaoContentBean taobaoContentBean){
+    private void showItem(ViewHolder viewHolder, TaobaoCoupons.ObjectsBean taobaoContentBean) {
 
         viewHolder.taobao_pro_desc.setText(taobaoContentBean.getTitle());
 
-        viewHolder.taobao_finalPrice.setText(taobaoContentBean.getFinalPrice()+"");
+        viewHolder.taobao_finalPrice.setText(taobaoContentBean.getFinalPrice() + "");
 
         viewHolder.couponAmount.setText("立减 " + taobaoContentBean.getCouponAmount() + " 元");
-        if(taobaoContentBean.getPlatform().equals("天猫")) {
+        if (taobaoContentBean.getPlatform().equals("天猫")) {
             viewHolder.taobao_platform.setImageResource(R.drawable.tmall_logo_30);
             viewHolder.taobao_discountPrice.setText("天猫价 ¥" + taobaoContentBean.getDiscountPrice());
         } else {
@@ -111,7 +111,7 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
 
 
             if (CommonData.TAOBAO == searchType) {
-                UIHelper.getInstance().openUrl(act, ((TaobaoContentBean)data).getCouponShareUrl());
+                UIHelper.getInstance().openUrl(act, ((TaobaoCoupons.ObjectsBean) data).getCouponShareUrl());
             }
 
         }
@@ -119,24 +119,21 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private View llContent, vwTopLine, rl_content;
-        private TextView tvTitle, tvContent, taobao_pro_desc, taobao_discountPrice, taobao_finalPrice, couponAmount;
-        private ImageView ivPoiImg, ivRatingOne, ivRatingTwo, ivRatingThree, ivRatingFour, ivRatingFive, product_img, taobao_platform;
+        private View rl_content;
+        private TextView taobao_pro_desc, taobao_discountPrice, taobao_finalPrice, couponAmount;
+        private ImageView product_img, taobao_platform;
 
         private ViewHolder(View v) {
             super(v);
 
-            if (searchType == CommonData.TAOBAO) {
+            product_img = (ImageView) v.findViewById(R.id.product_img);
+            taobao_platform = (ImageView) v.findViewById(R.id.taobao_platform);
+            taobao_pro_desc = (TextView) v.findViewById(R.id.taobao_pro_desc);
+            taobao_discountPrice = (TextView) v.findViewById(R.id.taobao_discountPrice);
+            taobao_finalPrice = (TextView) v.findViewById(R.id.taobao_finalPrice);
+            couponAmount = (TextView) v.findViewById(R.id.couponAmount);
+            rl_content = v.findViewById(R.id.rl_content);
 
-                product_img = (ImageView) v.findViewById(R.id.product_img);
-                taobao_platform = (ImageView) v.findViewById(R.id.taobao_platform);
-                taobao_pro_desc = (TextView) v.findViewById(R.id.taobao_pro_desc);
-                taobao_discountPrice = (TextView) v.findViewById(R.id.taobao_discountPrice);
-                taobao_finalPrice = (TextView) v.findViewById(R.id.taobao_finalPrice);
-                couponAmount = (TextView) v.findViewById(R.id.couponAmount);
-                rl_content = v.findViewById(R.id.rl_content);
-
-            }
         }
 
     }

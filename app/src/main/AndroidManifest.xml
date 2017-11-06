@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="so.bubu.Coupon.AliTrade" >
+    package="so.bubu.Coupon.AliTrade">
 
     <!-- 外部存储写入权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -63,16 +63,15 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/BaseAppTheme.NoActionBar.SwipeBack"
-        tools:replace="android:allowBackup"
-        >
+        tools:replace="android:allowBackup">
 
-        <!--<meta-data-->
-            <!--android:name="com.alibaba.app.applink.backurl"-->
-            <!--android:value="tbopen://alitradecoupon.bubu.so"/>-->
+        <!-- <meta-data -->
+        <!-- android:name="com.alibaba.app.applink.backurl" -->
+        <!-- android:value="tbopen://alitradecoupon.bubu.so"/> -->
 
         <meta-data
             android:name="com.alibaba.app.pid"
-            android:value="mm_119950409_20916506_70766512"/>
+            android:value="mm_119950409_20916506_70766512" />
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -80,10 +79,13 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
+        <meta-data
+            android:name="utils.GlideConfiguration"
+            android:value="GlideModule" />
 
         <activity
             android:name=".activity.LoadingActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,38 +101,39 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="alitradecoupon.bubu.so"
                     android:scheme="tbopen" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.about.AboutAuthorActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activity.about.WeixinOpenActivity"
+        <activity
+            android:name=".activity.about.WeixinOpenActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activity.Taobao.SearchActivity"
-            android:screenOrientation="portrait" >
-
-        </activity>
-
-        <activity android:name=".activity.WebViewActivity"
+        <activity
+            android:name=".activity.WebViewActivity"
             android:screenOrientation="portrait" />
-
-
+        <activity
+            android:name=".activity.Taobao.SearchActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.alibaba.baichuan.android.trade.ui.activity.AlibcWebViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.ali.auth.third.ui.LoginWebViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SearchResultActivity"
+            android:label="@string/title_activity_search_result"
+            android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

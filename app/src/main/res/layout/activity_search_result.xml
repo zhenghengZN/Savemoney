@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="so.bubu.Coupon.AliTrade.activity.SearchResultActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_top_height"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_top_height"
+            android:background="@android:color/white">
+
+            <FrameLayout
+                android:id="@+id/iv_back_poi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_back_poi_imageview"
+                    android:layout_width="@dimen/icon_mini_height"
+                    android:layout_height="@dimen/icon_mini_height"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:id="@+id/tv_search_imageview"
+                    android:layout_width="@dimen/icon_small_height"
+                    android:layout_height="@dimen/icon_small_height"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_centerInParent="true"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/text_city_search_result"
+                android:textColor="@android:color/black"
+                android:textSize="19sp" />
+        </RelativeLayout>
+        <View style="@style/normal_line" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment">
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>

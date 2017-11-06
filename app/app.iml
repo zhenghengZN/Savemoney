@@ -119,6 +119,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.kevin/wraprecyclerview/1.0.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.taobao.android/securitybodyaar3/5.1.25/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.taobao.android/securityguardaar3/5.1.81/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.youth.banner/banner/1.4.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.zhy/mpermission-api/1.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/jp.wasabeef/glide-transformations/1.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.zetetic/android-database-sqlcipher/3.4.0/jars" />
@@ -170,6 +171,7 @@
     <orderEntry type="library" exported="" name="wraprecyclerview-1.0.6" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-24.2.0" level="project" />
     <orderEntry type="library" exported="" name="mpermission-annotation-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="banner-1.4.4" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_QQZone_1" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_WeiXin_1" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_QQZone_2" level="project" />
@@ -197,7 +199,9 @@
     <orderEntry type="library" exported="" name="SocialSDK_sms" level="project" />
     <orderEntry type="library" exported="" name="alibc_trade_biz-3.1.1.205" level="project" />
     <orderEntry type="library" exported="" name="alibabauth_accountlink-1.1.4" level="project" />
+    <orderEntry type="module" module-name="refresh-header" exported="" />
+    <orderEntry type="module" module-name="refresh-footer" exported="" />
+    <orderEntry type="module" module-name="refresh-layout" exported="" />
     <orderEntry type="module" module-name="Bubu_Lib" exported="" />
-    <orderEntry type="module" module-name="lib_material" exported="" />
   </component>
 </module>

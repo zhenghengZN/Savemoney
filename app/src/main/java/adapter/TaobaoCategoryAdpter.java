@@ -4,16 +4,18 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.avos.avoscloud.LogUtil;
 
+import app.CommonData;
 import so.bubu.Coupon.AliTrade.fragment.TaobaoContentFragment;
 
 
 /**
  * Created by zhengheng on 17/9/12.
  */
-public class TaobaoCategoryAdpter extends FragmentPagerAdapter {
+public class TaobaoCategoryAdpter extends FragmentStatePagerAdapter {
 
 //    private List<Category> categoryList = new ArrayList<>();
     public static String[] categoryList;
@@ -24,8 +26,6 @@ public class TaobaoCategoryAdpter extends FragmentPagerAdapter {
 
     public TaobaoCategoryAdpter(FragmentManager fm, String[] categoryList) {
         super(fm);
-//        categoryList.clear();
-//        categoryList.addAll(categoryList);
         this.categoryList = categoryList;
     }
 
@@ -34,7 +34,7 @@ public class TaobaoCategoryAdpter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         taobaoFragment = new TaobaoContentFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("category",categoryList[position]);
+        bundle.putString(CommonData.CATEGORY,categoryList[position]);
         taobaoFragment.setArguments(bundle);
         return taobaoFragment;
     }
@@ -50,7 +50,6 @@ public class TaobaoCategoryAdpter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if(categoryList != null) {
-            LogUtil.log.e("getPageTitle","getPageTitle"+categoryList[position]);
             return categoryList[position];
         }
         return "";

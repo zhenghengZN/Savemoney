@@ -40,7 +40,6 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
     private AirImageView airImageView;
     private Animation translateAnimation;
     private ShutDown shutDown;
-    private  BgImageView bgImageView;
 
     public SunLayout(Context context) {
         this(context, null);
@@ -52,7 +51,7 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
 
     public SunLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-       init();
+        init();
     }
 
     private void init() {
@@ -63,22 +62,18 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
 
 //        addView(view);
 
-        if(bgImageView == null && airImageView == null) {
-            setBackgroundColor(getResources().getColor(R.color.color_bg));
+        setBackgroundColor(getResources().getColor(R.color.color_bg));
 
-            Context context = getContext();
+        Context context = getContext();
 
-            ViewGroup.LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Util.dip2px(context, 120));
-            setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Util.dip2px(context, 120));
+        setLayoutParams(layoutParams);
 
-            bgImageView = new BgImageView(context);
-            addView(bgImageView);
+        BgImageView bgImageView = new BgImageView(context);
+        addView(bgImageView);
 
-            airImageView = new AirImageView(context);
-            // airImageView.setVisibility(View.GONE);
-            addView(airImageView);
-        }
-
+        airImageView = new AirImageView(context);
+        addView(airImageView);
 
 //        mSunRadius = DEFAULT_SUN_RADIUS;
 //        mSunColor = DEFAULT_SUN_COLOR;
@@ -106,12 +101,6 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
 //        addView(mLineView);
 //
 //        startSunLineAnim(mLineView);
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        //init();
     }
 
     /**
@@ -227,7 +216,6 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
 //        ViewCompat.setScaleX(this, 0);
 //        ViewCompat.setScaleY(this, 0);
         if (null != airImageView) {
-            //airImageView.setVisibility(View.GONE);
             airImageView.clearAnimation();
         }
     }
@@ -269,7 +257,6 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
     @Override
     public void onRefreshing(MaterialRefreshLayout materialRefreshLayout) {
 //        startSunLineAnim(mLineView);
-
         isRepeat = false;
         if (null == translateAnimation) {
             //飞机的动画
@@ -282,7 +269,6 @@ public class SunLayout extends FrameLayout implements MaterialHeadListener {
             Log.e("SunLayout", "onRefreshing ");
         }
         if (null != airImageView) {
-            //airImageView.setVisibility(View.VISIBLE);
             airImageView.startAnimation(translateAnimation);
         }
     }

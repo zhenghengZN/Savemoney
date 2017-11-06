@@ -423,7 +423,7 @@ public class AVAnalyticsHelper {
     public static final String COMMENT_DYNAMIC_DETAIL = "评论动态详情";
     public static final String REPLY_TO_COMMENT = "回复";
     public static final String REPLY_TO_COMMENT_YES = "确认回复";
-    public static final String INFORMATION_BANNER = "banner";
+    public static final String INFORMATION_BANNER = "banner_grid";
     public static final String INFORMATION_NET = "网站";
     public static final String INFORMATION_DYNAMIC = "动态";
     public static final String INFORMATION_GUIDE = "精选";
@@ -493,7 +493,7 @@ public class AVAnalyticsHelper {
     }
 
     // banner统计
-    private static final String BANNER = "banner";
+    private static final String BANNER = "banner_grid";
 
     public static void addBanner(String action) {
         if (IS_OPEN_AVANALY) {

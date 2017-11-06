@@ -113,7 +113,7 @@ public class MaterialFoodView extends FrameLayout implements MaterialHeadListene
         addView(materialWaveView);
 
         circleProgressBar = new CircleProgressBar(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(Util.dip2px(getContext(), progressSize), Util.dip2px(getContext(), progressSize));
+        LayoutParams layoutParams = new LayoutParams(Util.dip2px(getContext(), progressSize), Util.dip2px(getContext(), progressSize));
         layoutParams.gravity = Gravity.CENTER;
         circleProgressBar.setLayoutParams(layoutParams);
         circleProgressBar.setColorSchemeColors(progress_colors);
@@ -125,6 +125,7 @@ public class MaterialFoodView extends FrameLayout implements MaterialHeadListene
         circleProgressBar.setMax(progressValueMax);
         circleProgressBar.setCircleBackgroundEnabled(isShowProgressBg);
         circleProgressBar.setProgressBackGroundColor(progressBg);
+        circleProgressBar.setVisibility(GONE);
         addView(circleProgressBar);
     }
 
@@ -134,6 +135,7 @@ public class MaterialFoodView extends FrameLayout implements MaterialHeadListene
             materialWaveView.onComlete(materialRefreshLayout);
         }
         if (circleProgressBar != null) {
+            circleProgressBar.setVisibility(GONE);
             circleProgressBar.onComlete(materialRefreshLayout);
             ViewCompat.setTranslationY(circleProgressBar, 0);
             ViewCompat.setScaleX(circleProgressBar, 0);
@@ -180,6 +182,7 @@ public class MaterialFoodView extends FrameLayout implements MaterialHeadListene
             materialWaveView.onRefreshing(materialRefreshLayout);
         }
         if (circleProgressBar != null) {
+            circleProgressBar.setVisibility(VISIBLE);
             circleProgressBar.onRefreshing(materialRefreshLayout);
         }
     }

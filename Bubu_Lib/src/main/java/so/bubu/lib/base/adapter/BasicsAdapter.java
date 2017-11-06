@@ -83,7 +83,7 @@ public abstract class BasicsAdapter<T> extends BaseAdapter {
 	 * @ author:linhuan 2014-9-5 上午9:53:24
 	 */
 	public int getDataCount(int size) {
-		return 0 == size ? 1 : size;
+		return 0 == size ? 0 : size;
 	}
 
 	/**

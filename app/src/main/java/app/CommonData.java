@@ -5,5 +5,9 @@ package app;
  */
 public class CommonData {
 
-    public static final int TAOBAO= 12;                                         // 淘宝
+    public static final String CATEGORY = "category";
+    public static final String KEYWORD = "keyword";
+    public static final String SUBCATEGORY = "subcategory";
+
+    public static final int TAOBAO = 12;
 }

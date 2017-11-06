@@ -19,9 +19,11 @@
         tl:tl_textSelectColor="@color/color_ff6f06"
         tl:tl_indicator_color="@color/color_ff5000"
         tl:tl_indicator_height="2dp"
-        tl:tl_textsize="16sp"
+        tl:tl_textsize="15sp"
         tl:tl_tab_padding="10dp"
         tl:tl_textUnselectColor="@android:color/black"
+        tl:tl_underline_height="0.5dp"
+        tl:tl_underline_color="@color/color_d8d8d8"
         />
 
     <wiget.FatherViewPager

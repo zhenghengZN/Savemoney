@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import app.CityGuideApplication;
+import app.CommonData;
+import iconicfont.util.LeanCloudService;
 
 
 /**
@@ -15,8 +17,8 @@ import app.CityGuideApplication;
  */
 public class InformationHelper extends BaseNetHelper {
 
-    private static final String GETTAOBAOITEMCATEGORIES = "getTaobaoItemCategories";
-    private static final String GETTAOBAOITEMS = "getTaobaoItems";
+    private static final String GETTAOBAOITEMS = "getTaobaoCoupons";
+    private static final String GETTAOBAOITEMCATEGORIESBETA = "getTaobaoItemCategoriesBeta";
 
     private InformationHelper() {
     }
@@ -36,12 +38,13 @@ public class InformationHelper extends BaseNetHelper {
      * 获取淘宝优惠卷
      */
 
-    public void getTaobaoItems(int skip, int limit, String category, String keywords, final CallFunctionBackListener listener) {
+    public void getTaobaoCoupons(int skip, int limit, String category, String keywords, String subcategory, final CallFunctionBackListener listener) {
 
         Map<String, Object> stringObjectMap = addRequestParams(skip, limit);
-        stringObjectMap.put("category", category);
-        stringObjectMap.put("keywords", keywords);
-        CityGuideApplication.learnCloudService.callFunctionInBackground(GETTAOBAOITEMS, stringObjectMap, new FunctionCallback<Object>() {
+        stringObjectMap.put(CommonData.CATEGORY, category);
+        stringObjectMap.put(CommonData.KEYWORD, keywords);
+        stringObjectMap.put(CommonData.SUBCATEGORY, subcategory);
+        LeanCloudService.callFunctionInBackground(GETTAOBAOITEMS, stringObjectMap, new FunctionCallback<Object>() {
 
             @Override
             public void done(Object o, AVException e) {
@@ -54,9 +57,9 @@ public class InformationHelper extends BaseNetHelper {
     /**
      * 获取淘宝分类
      */
-    public void getTaobaoItemCategories(final CallFunctionBackListener listener) {
+    public void getTaobaoItemCategoriesBeta(final CallFunctionBackListener listener) {
 
-        CityGuideApplication.learnCloudService.callFunctionInBackground(GETTAOBAOITEMCATEGORIES, null, new FunctionCallback<Object>() {
+        LeanCloudService.callFunctionInBackground(GETTAOBAOITEMCATEGORIESBETA, null, new FunctionCallback<Object>() {
 
             @Override
             public void done(Object o, AVException e) {

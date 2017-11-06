@@ -54,7 +54,7 @@
     <color name="color_tab_line">#82CD6B</color>
     <color name="color_hot_line">#848484</color>
     <color name="color_listview_line">#E2E2E2</color>
-    <color name="color_listview_bg">#0F000000</color>
+    <color name="color_listview_bg">#FBF7ED</color>
     <color name="color_menu_infor">#999999</color>
     <color name="color_menu_money_bg">#4D000000</color>
     <color name="color_select_bg">#F2F2F2</color>

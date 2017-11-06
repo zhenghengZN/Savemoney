@@ -12,6 +12,9 @@
             <option value="$PROJECT_DIR$/Bubu_Lib" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_material" />
+            <option value="$PROJECT_DIR$/refresh-footer" />
+            <option value="$PROJECT_DIR$/refresh-header" />
+            <option value="$PROJECT_DIR$/refresh-layout" />
           </set>
         </option>
       </GradleProjectSettings>

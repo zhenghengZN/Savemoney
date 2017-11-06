@@ -57,11 +57,11 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImageNoError(Context context, int resId, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImageNoError(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
 
         Glide
                 .with(context)
-                .load(resId)
+                .load(url)
                 .override(targetWidth, targetHeight)
                 .centerCrop()
                 .bitmapTransform(new RoundedCornersTransformation(context, radis, 0))
@@ -340,6 +340,7 @@ public class GlideHelper {
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.loading)
                 .override(targetWidth, targetHeight)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .centerCrop()
                 .into(targetView);
     }

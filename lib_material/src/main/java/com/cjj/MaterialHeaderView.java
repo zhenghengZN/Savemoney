@@ -56,7 +56,7 @@ public class MaterialHeaderView extends FrameLayout implements MaterialHeadListe
 
     public void setProgressSize(int progressSize) {
         this.progressSize = progressSize;
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) density * progressSize, (int) density * progressSize);
+        LayoutParams layoutParams = new LayoutParams((int) density * progressSize, (int) density * progressSize);
         layoutParams.gravity = Gravity.CENTER;
         if(circleProgressBar!=null)
         circleProgressBar.setLayoutParams(layoutParams);
@@ -126,7 +126,7 @@ public class MaterialHeaderView extends FrameLayout implements MaterialHeadListe
         addView(materialWaveView);
 
         circleProgressBar = new CircleProgressBar(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) density * progressSize, (int) density * progressSize);
+        LayoutParams layoutParams = new LayoutParams((int) density * progressSize, (int) density * progressSize);
         layoutParams.gravity = Gravity.CENTER;
         circleProgressBar.setLayoutParams(layoutParams);
         circleProgressBar.setColorSchemeColors(progress_colors);

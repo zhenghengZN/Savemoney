@@ -12,9 +12,7 @@ import com.kevin.wraprecyclerview.BaseRecyclerAdapter;
 
 import java.util.LinkedList;
 
-
-import bean.TaobaoContentBean;
-
+import bean.TaobaoCoupons;
 import common.CommonMethod;
 import so.bubu.lib.helper.ResourceHelper;
 import so.bubu.Coupon.AliTrade.R;
@@ -23,14 +21,14 @@ import utils.GlideHelper;
 /**
  * Created by zhengheng on 17/9/13.
  */
-public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoContentBean, TaobaoContentAdapter.ViewHolder> implements View.OnClickListener{
+public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoCoupons.ObjectsBean, TaobaoContentAdapter.ViewHolder> implements View.OnClickListener {
 
     private int mWidth, mHeight;
     private View mHeaderView;
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
 
-    public TaobaoContentAdapter(Context mContext, LinkedList<TaobaoContentBean> mItemLists) {
+    public TaobaoContentAdapter(Context mContext, LinkedList<TaobaoCoupons.ObjectsBean> mItemLists) {
         super(mContext, mItemLists);
         mWidth = ResourceHelper.Dp2Px(115);
         mHeight = ResourceHelper.Dp2Px(115);
@@ -38,7 +36,7 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoContentBean,
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(mHeaderView != null && viewType == TYPE_HEADER) {
+        if (mHeaderView != null && viewType == TYPE_HEADER) {
             return new ViewHolder(mHeaderView);
         }
         View view = ResourceHelper.loadLayout(mContext, R.layout.taobao_item, parent, false);
@@ -49,17 +47,18 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoContentBean,
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(getItemViewType(position) == TYPE_HEADER) {
+        if (getItemViewType(position) == TYPE_HEADER) {
             return;
         }
         final int pos = getRealPosition(holder);
-        TaobaoContentBean taobaoContentBean = mItemLists.get(pos);
+        TaobaoCoupons.ObjectsBean taobaoContentBean = mItemLists.get(pos);
         holder.taobao_pro_desc.setText(taobaoContentBean.getTitle());
 
-        holder.taobao_finalPrice.setText(taobaoContentBean.getFinalPrice()+"");
+        holder.taobao_finalPrice.setText(taobaoContentBean.getFinalPrice() + " ");
 
+        holder.biz30Day.setText("月销:" + taobaoContentBean.getBiz30Day());
         holder.couponAmount.setText("立减 " + taobaoContentBean.getCouponAmount() + " 元");
-        if(taobaoContentBean.getPlatform().equals("天猫")) {
+        if (taobaoContentBean.getPlatform().equals("天猫")) {
             holder.taobao_platform.setImageResource(R.drawable.tmall_logo_30);
             holder.taobao_discountPrice.setText("天猫价 ¥" + taobaoContentBean.getDiscountPrice());
         } else {
@@ -75,11 +74,11 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoContentBean,
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取position
-            mOnItemClickListener.onItemClick(v,(int)v.getTag());
+            mOnItemClickListener.onItemClick(v, (int) v.getTag());
         }
     }
 
-    public  interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
 
@@ -110,22 +109,23 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoContentBean,
 
     @Override
     public int getItemViewType(int position) {
-        if(mHeaderView == null) return TYPE_NORMAL;
-        if(position == 0) return TYPE_HEADER;
+        if (mHeaderView == null) return TYPE_NORMAL;
+        if (position == 0) return TYPE_HEADER;
+
         return TYPE_NORMAL;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView product_img, taobao_platform;
-        private TextView taobao_pro_desc, taobao_discountPrice, taobao_finalPrice, couponAmount;
+        private TextView taobao_pro_desc, taobao_discountPrice, taobao_finalPrice, couponAmount, biz30Day;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             product_img = (ImageView) itemView.findViewById(R.id.product_img);
             taobao_platform = (ImageView) itemView.findViewById(R.id.taobao_platform);
-
+            biz30Day = (TextView) itemView.findViewById(R.id.biz30Day);
             taobao_pro_desc = (TextView) itemView.findViewById(R.id.taobao_pro_desc);
             taobao_discountPrice = (TextView) itemView.findViewById(R.id.taobao_discountPrice);
             taobao_finalPrice = (TextView) itemView.findViewById(R.id.taobao_finalPrice);

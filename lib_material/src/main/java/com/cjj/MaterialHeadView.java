@@ -124,7 +124,7 @@ public class MaterialHeadView extends FrameLayout implements MaterialHeadListene
         addView(materialWaveView);
 
         circleProgressBar = new CircleProgressBar(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(Util.dip2px(getContext(),progressSize),Util.dip2px(getContext(),progressSize));
+        LayoutParams layoutParams = new LayoutParams(Util.dip2px(getContext(),progressSize),Util.dip2px(getContext(),progressSize));
         layoutParams.gravity = Gravity.CENTER;
         circleProgressBar.setLayoutParams(layoutParams);
         circleProgressBar.setColorSchemeColors(progress_colors);

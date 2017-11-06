@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.alibaba.baichuan.android.trade.AlibcTrade;
 import com.alibaba.baichuan.android.trade.callback.AlibcTradeCallback;
@@ -18,6 +19,7 @@ import com.alibaba.baichuan.android.trade.page.AlibcPage;
 import java.util.HashMap;
 import java.util.Map;
 
+import so.bubu.Coupon.AliTrade.activity.SearchResultActivity;
 import so.bubu.lib.helper.NavigationHelper;
 import so.bubu.lib.helper.ToastHelper;
 import so.bubu.Coupon.AliTrade.R;
@@ -43,6 +45,20 @@ public class UIHelper {
     public void openUrl(Context context, String url) {
         if (url.contains("taobao")) {
             openAlibc(context, url);
+        } else if(url.contains("redirectAppPage?")) {
+            String[] parameters = url.split("&");
+            for (int i = 0; i < parameters.length; i++) {
+                if (parameters[i].contains("page=")) {
+                    String page = parameters[i].substring(parameters[i].indexOf("=") + 1, parameters[i].length());
+                    if (page.equalsIgnoreCase("TaobaoCouponList")) {
+                        Bundle db = new Bundle();
+//                        db.putInt("search_type", CommonData.TAOBAO);
+                        db.putString("url",url);
+                        NavigationHelper.slideActivity((Activity)context, SearchResultActivity.class, db, false);
+                        break;
+                    }
+                }
+            }
         } else if (url.isEmpty()) {
             NavigationHelper.openBrowse(url, (Activity) context);
         } else {
@@ -61,7 +77,6 @@ public class UIHelper {
         AlibcShowParams alibcShowParams = new AlibcShowParams(OpenType.Native, false);
         alibcShowParams.setBackUrl("tbopen://alitradecoupon.bubu.so");
         AlibcTaokeParams alibcTaokeParams = new AlibcTaokeParams("mm_119950409_20916506_70766512", "", "mm_119950409_20916506_70766512");
-
         Map<String, String> exParams = new HashMap<>();
         exParams.put(AlibcConstants.ISV_CODE, "appisvcode");
         AlibcTrade.show((Activity) context, alibcBasePage, alibcShowParams, alibcTaokeParams, exParams, new AlibcTradeCallback() {

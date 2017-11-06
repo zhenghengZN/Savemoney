@@ -123,7 +123,7 @@ public class MaterialFooterView extends FrameLayout implements MaterialHeadListe
         addView(materialWaveView);
 
         circleProgressBar = new CircleProgressBar(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) density * progressSize, (int) density * progressSize);
+        LayoutParams layoutParams = new LayoutParams((int) density * progressSize, (int) density * progressSize);
         layoutParams.gravity = Gravity.CENTER;
         circleProgressBar.setLayoutParams(layoutParams);
         circleProgressBar.setColorSchemeColors(progress_colors);
@@ -144,6 +144,7 @@ public class MaterialFooterView extends FrameLayout implements MaterialHeadListe
 //        TextView textView = new TextView(context);
 //        textView.setText("正在加载更多的数据...");
 //        relativeLayout.addView(textView,lp);
+        circleProgressBar.setVisibility(GONE);
         addView(circleProgressBar);
     }
 
@@ -153,6 +154,7 @@ public class MaterialFooterView extends FrameLayout implements MaterialHeadListe
             materialWaveView.onComlete(materialRefreshLayout);
         }
         if (circleProgressBar != null) {
+            circleProgressBar.setVisibility(GONE);
             circleProgressBar.onComlete(materialRefreshLayout);
             ViewCompat.setTranslationY(circleProgressBar, 0);
             ViewCompat.setScaleX(circleProgressBar, 0);
@@ -199,6 +201,7 @@ public class MaterialFooterView extends FrameLayout implements MaterialHeadListe
             materialWaveView.onRefreshing(materialRefreshLayout);
         }
         if (circleProgressBar != null) {
+            circleProgressBar.setVisibility(VISIBLE);
             circleProgressBar.onRefreshing(materialRefreshLayout);
         }
     }
