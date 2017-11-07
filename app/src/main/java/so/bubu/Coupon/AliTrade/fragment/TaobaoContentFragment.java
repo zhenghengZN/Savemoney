@@ -247,17 +247,13 @@ public class TaobaoContentFragment extends TitleFragment {
                     @Override
                     public void displayImage(Context context, Object path, ImageView imageView) {
                         if (Helper.isNotEmpty(path)) {
-                            GlideHelper.displayImageByResize(context, CommonMethod.getThumbUrl(path.toString(), (int) width, (int) height), (int) width, (int) height, imageView);
+                            GlideHelper.displayImageByResizeasBitmap(context, CommonMethod.getThumbUrl(path.toString(), (int) width, (int) height), (int) width, (int) height, imageView);
                         }
                     }
                 })
                 .start();
 
     }
-
-//    private void setGrid(TaobaoCoupons.WidgetsBean widgetsBean) {
-//        setListviewTop(widgetsBean);
-//    }
 
     private String keyword;
 

@@ -57,6 +57,7 @@ public class GlideHelper {
 
     }
 
+
     public static void displayRoundedCornersImageNoError(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
 
         Glide
@@ -337,7 +338,7 @@ public class GlideHelper {
                 .with(context)
                 .load(url)
                 .asBitmap()
-                .placeholder(R.drawable.loading)
+                .placeholder(R.drawable.imagebackground)
                 .error(R.drawable.loading)
                 .override(targetWidth, targetHeight)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
