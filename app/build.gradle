@@ -193,4 +193,5 @@ dependencies {
     compile project(':refresh-footer')
     compile project(':refresh-header')
     compile project(':refresh-layout')
+    testCompile 'junit:junit:4.12'
 }

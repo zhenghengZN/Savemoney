@@ -53,11 +53,6 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
         this.searchInterface = searchInterface;
     }
 
-//    @Override
-//    public int getItemViewType(int position) {
-//        return CommonData.CITY_ACTIVITY == searchType ? CommonData.CITY_ACTIVITY : CommonMethod.getPlaceType(((PlaceRespBean) dataList.get(position)).getCategory());
-//    }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v;
@@ -110,9 +105,9 @@ public class SearchAdapter<T> extends RecyclerView.Adapter {
             }
 
 
-            if (CommonData.TAOBAO == searchType) {
+//            if (CommonData.TAOBAO == searchType) {
                 UIHelper.getInstance().openUrl(act, ((TaobaoCoupons.ObjectsBean) data).getCouponShareUrl());
-            }
+//            }
 
         }
     }

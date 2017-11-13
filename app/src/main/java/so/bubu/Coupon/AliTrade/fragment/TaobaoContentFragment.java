@@ -31,16 +31,11 @@ import java.util.List;
 import adapter.BaseCallFunctionBackListener;
 import adapter.TaobaoContentAdapter;
 import adapter.TypeAdapter;
-import app.CityGuideApplication;
 import app.CommonData;
 import bean.TaobaoCoupons;
 import common.CommonMethod;
 import common.base.TitleFragment;
 
-
-import common.dialog.BannerDialog;
-import iconicfont.IconicFontUtil;
-import iconicfont.icon.CityGuideIcon;
 import so.bubu.Coupon.AliTrade.R;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.Helper;
@@ -127,7 +122,7 @@ public class TaobaoContentFragment extends TitleFragment {
             public void callSuccess(boolean result, String jsonstr) {
                 if (result) {
                     TaobaoCoupons taobaoCoupons = JSON.parseObject(jsonstr, TaobaoCoupons.class);
-
+                    LogUtil.log.e("getTaobaoCoupons",""+keyword+":"+jsonstr);
                     hasMore = taobaoCoupons.isHasMore();
                     refreshLayout.setEnableLoadmore(hasMore);
 
@@ -173,9 +168,7 @@ public class TaobaoContentFragment extends TitleFragment {
 
     private double scale, width, height;
     private FrameLayout flActivity;
-    private TextView tvNum, tvCount;
     private Banner banner;
-    private BannerDialog bannerDialog;
     private LinkedList<TaobaoCoupons.WidgetsBean.ObjectsBean> bannerlist = new LinkedList<>();
 
     private void setBanner(final TaobaoCoupons.WidgetsBean widgetsBean) {
@@ -187,20 +180,6 @@ public class TaobaoContentFragment extends TitleFragment {
         height = scale * widgetsBean.getHeight();
         banner = (Banner) gridview.findViewById(R.id.br_activity);
         flActivity = (FrameLayout) gridview.findViewById(R.id.fl_activity);
-        tvNum = (TextView) gridview.findViewById(R.id.tv_num);
-        tvNum.setVisibility(View.GONE);
-        tvCount = (TextView) gridview.findViewById(R.id.tv_count);
-        tvCount.setVisibility(View.GONE);
-        gridview.findViewById(R.id.iv_add).setBackground(IconicFontUtil.createIconicFont(CityGuideIcon.ICON_ADD_IMG, act.getResources().getColor(R.color.color_ffffff)));
-        gridview.findViewById(R.id.ll_banner).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Helper.isNull(bannerDialog)) {
-                    bannerDialog = new BannerDialog(act);
-                }
-                bannerDialog.showContent(bannerlist).show();
-            }
-        });
         List<String> pathList = new ArrayList();
         for (TaobaoCoupons.WidgetsBean.ObjectsBean bannerRespBean : bannerlist) {
             pathList.add(bannerRespBean.getPicUrl());
@@ -220,7 +199,7 @@ public class TaobaoContentFragment extends TitleFragment {
                 if (Helper.isNotEmpty(bannerlist)) {
                     position = (position == (bannerlist.size() + 1)) ? 1 : position;
                     if ((position - 1) < bannerlist.size()) {
-                        tvNum.setText(position + "");
+//                        tvNum.setText(position + "");
                     }
                 }
             }

@@ -22,55 +22,6 @@
             app:indicator_margin="2dp"
             app:indicator_width="5dp"
             app:is_auto_play="true" />
-
-        <LinearLayout
-            android:id="@+id/ll_banner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="12dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/white_radius_button_background"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="3dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="3dp">
-
-            <TextView
-                android:id="@+id/tv_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="1"
-                android:textColor="@color/color_848484"
-                android:textSize="12sp" />
-
-            <FrameLayout
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_marginLeft="3dp"
-                android:background="@drawable/bg_add_circle">
-
-                <ImageView
-                    android:id="@+id/iv_add"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_gravity="center" />
-
-            </FrameLayout>
-
-        </LinearLayout>
-
     </FrameLayout>
 
     <LinearLayout

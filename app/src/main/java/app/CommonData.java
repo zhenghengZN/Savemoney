@@ -6,7 +6,7 @@ package app;
 public class CommonData {
 
     public static final String CATEGORY = "category";
-    public static final String KEYWORD = "keyword";
+    public static final String KEYWORD = "keywords";
     public static final String SUBCATEGORY = "subcategory";
 
     public static final int TAOBAO = 12;

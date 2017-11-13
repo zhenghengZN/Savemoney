@@ -65,17 +65,13 @@
         android:theme="@style/BaseAppTheme.NoActionBar.SwipeBack"
         tools:replace="android:allowBackup">
 
-        <!-- <meta-data -->
-        <!-- android:name="com.alibaba.app.applink.backurl" -->
-        <!-- android:value="tbopen://alitradecoupon.bubu.so"/> -->
-
         <meta-data
             android:name="com.alibaba.app.pid"
             android:value="mm_119950409_20916506_70766512" />
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="584e14052ae85b3da7000609" />
+            android:value="5a04fd02f43e485a9b0000f1" />
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
@@ -133,7 +129,7 @@
         <activity
             android:name=".activity.SearchResultActivity"
             android:label="@string/title_activity_search_result"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>

@@ -52,7 +52,6 @@ public class UIHelper {
                     String page = parameters[i].substring(parameters[i].indexOf("=") + 1, parameters[i].length());
                     if (page.equalsIgnoreCase("TaobaoCouponList")) {
                         Bundle db = new Bundle();
-//                        db.putInt("search_type", CommonData.TAOBAO);
                         db.putString("url",url);
                         NavigationHelper.slideActivity((Activity)context, SearchResultActivity.class, db, false);
                         break;

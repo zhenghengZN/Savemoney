@@ -65,6 +65,7 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
         bundle.putString(CommonData.KEYWORD, keyword);
         bundle.putString(CommonData.CATEGORY, category);
         bundle.putString(CommonData.SUBCATEGORY, subcategory);
+        LogUtil.log.e("SearchResultActivity", keyword + "" + category +"" +subcategory);
         taobaoContentFragment.setArguments(bundle);
         ft.replace(R.id.fragment, taobaoContentFragment);
 

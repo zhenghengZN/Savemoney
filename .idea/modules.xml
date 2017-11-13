@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Bubu_Lib/Bubu_Lib.iml" filepath="$PROJECT_DIR$/Bubu_Lib/Bubu_Lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/Savemoney.iml" filepath="$PROJECT_DIR$/Savemoney.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib_material/lib_material.iml" filepath="$PROJECT_DIR$/lib_material/lib_material.iml" />
       <module fileurl="file://$PROJECT_DIR$/refresh-footer/refresh-footer.iml" filepath="$PROJECT_DIR$/refresh-footer/refresh-footer.iml" />
       <module fileurl="file://$PROJECT_DIR$/refresh-header/refresh-header.iml" filepath="$PROJECT_DIR$/refresh-header/refresh-header.iml" />
       <module fileurl="file://$PROJECT_DIR$/refresh-layout/refresh-layout.iml" filepath="$PROJECT_DIR$/refresh-layout/refresh-layout.iml" />

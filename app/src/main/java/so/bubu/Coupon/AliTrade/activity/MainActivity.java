@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.LogUtil;
 import com.avos.avoscloud.PushService;
 
+import adapter.BaseCallFunctionBackListener;
 import adapter.MainPagerAdapter;
+import bean.TaobaoCoupons;
 import common.base.StatusBarBaseCompatActivity;
 import iconicfont.IconicFontDrawable;
 import iconicfont.IconicFontUtil;
@@ -22,6 +26,8 @@ import so.bubu.lib.helper.AppManager;
 import so.bubu.lib.helper.ResourceHelper;
 import so.bubu.lib.helper.ToastHelper;
 import so.bubu.Coupon.AliTrade.R;
+//import tools.fastlane.screengrab.Screengrab;
+import utils.InformationHelper;
 import utils.SharedPreferencesHelp;
 import wiget.NoScrollViewPager;
 
@@ -79,6 +85,23 @@ public class MainActivity extends StatusBarBaseCompatActivity {
         taobaoIcon = (ImageView) view.findViewById(R.id.iv_icon);
         view.setOnClickListener(onClickListener);
 
+
+        InformationHelper.getInstance().getTaobaoCoupons(0, 20, null, "泡面", null, new BaseCallFunctionBackListener() {
+            @Override
+            public void callSuccess(boolean result, String jsonstr) {
+                if (result) {
+                    LogUtil.log.e("getTaobaoCouponscallSuccess",jsonstr);
+                } else {
+
+                }
+
+            }
+
+            @Override
+            public void callFailure(int type, AVException e) {
+
+            }
+        });
 
         clickActivity();
     }
