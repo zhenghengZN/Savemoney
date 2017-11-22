@@ -1,11 +1,15 @@
 package so.bubu.Coupon.AliTrade.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +18,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.LogUtil;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import app.CommonData;
@@ -29,12 +34,15 @@ import so.bubu.lib.helper.StatusBarUtil;
 import utils.InformationHelper;
 
 public class SearchResultActivity extends TitleAppCompatActivity implements View.OnClickListener {
+    private static final String TAG = SearchResultActivity.class.getSimpleName();
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
         intent = getIntent();
         setContentView(R.layout.activity_search_result);
+        parammap = (HashMap<String, Object>) intent.getSerializableExtra(CommonData.PARAMMAP);
+        registerReceiver(new SearchResultReceiver(), new IntentFilter("NEW_RESULT"));
     }
 
     private TextView title;
@@ -48,7 +56,6 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
         fm = this.getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        parammap = (HashMap<String, Object>) intent.getSerializableExtra(CommonData.PARAMMAP);
 
         title = (TextView) findViewById(R.id.tv_title);
         String pageTitle = (String) parammap.get("pageTitle");
@@ -80,7 +87,6 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
     }
 
 
-
     private HashMap<String, Object> parammap = new HashMap<>();
 
     @Override
@@ -88,34 +94,6 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
         super.onNewIntent(intent);
         this.intent = intent;
     }
-
-    private void splitUrl(String url) {
-        if (url != null && !(url.isEmpty())) {
-            String[] urlstring = url.split("\\?");
-            String[] parameters = urlstring[1].split("&");
-            parammap = new HashMap<>();
-            for (int i = 0; i < parameters.length; i++) {
-                String[] keyAndvalue = parameters[i].split("=");
-                parammap.put(keyAndvalue[0], keyAndvalue[1]);
-
-//                if (keyAndvalue[0].equals("category") && !keyAndvalue[0].equals("subcategory")) {
-//                    category = keyAndvalue[1];
-//                } else if (keyAndvalue[0].equals("subcategory")) {
-//                    subcategory = keyAndvalue[1];
-//                }
-//
-                if (keyAndvalue[0].equals("pageTitle")) {
-//                    subcategory = keyAndvalue[1];
-                    title.setText(keyAndvalue[1]);
-                }
-            }
-        } else {
-            title.setText(parammap.get(CommonData.KEYWORD).toString());
-        }
-    }
-
-
-
 
     @Override
     protected void doBack(int keyCode, KeyEvent event) {
@@ -127,13 +105,15 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
     @Override
     protected void onResume() {
         super.onResume();
+        Log.e(TAG, "onResume ");
+//        if()
+//        FragmentTransaction transaction = fm.beginTransaction();
+//        if (fragmentold != null) {
+//            transaction.remove(fragmentold);
+//        }
+//        transaction.commit();
+//        initView();
 
-        FragmentTransaction transaction = fm.beginTransaction();
-        if (fragmentold != null) {
-            transaction.remove(fragmentold);
-        }
-        transaction.commit();
-        initView();
     }
 
     @Override
@@ -143,8 +123,33 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
                 finish();
                 break;
             case R.id.tv_search:
+
+//                FragmentTransaction transaction = fm.beginTransaction();
+//                if (fragmentold != null) {
+//                    transaction.remove(fragmentold);
+//                }
+//                transaction.commit();
+
                 NavigationHelper.alphaActivityAddsearchTypeData(this, SearchActivity.class, CommonData.TAOBAO, null, false);
                 break;
+        }
+    }
+
+
+    class SearchResultReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("NEW_RESULT")) {
+//                SearchResultActivity.this.intent = getIntent();
+                FragmentTransaction transaction = fm.beginTransaction();
+                if (fragmentold != null) {
+                    transaction.remove(fragmentold);
+                }
+                transaction.commit();
+                parammap = (HashMap<String, Object>) intent.getSerializableExtra(CommonData.PARAMMAP);
+                initView();
+            }
         }
     }
 }

@@ -466,9 +466,7 @@ public class TaobaoContentFragment extends TitleFragment {
 
                 Adapter.setSelectedPosition(position);
                 Adapter.notifyDataSetChanged();//布局中的控件也更新
-
                 manager.scrollToPositionWithOffset(1, ResourceHelper.Dp2Px(40));
-
                 LogUtil.log.e("Adapter.setOnItemClickListener", "Adapter.setOnItemClickListener");
             }
 

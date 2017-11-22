@@ -1,5 +1,6 @@
 package so.bubu.Coupon.AliTrade.activity.Taobao;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -233,6 +234,10 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
                 parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
                 bundle.putSerializable(CommonData.PARAMMAP, parammap);
                 NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+
+                Intent intent = new Intent("NEW_RESULT");
+                intent.putExtra(CommonData.PARAMMAP, parammap);
+                sendBroadcast(intent);
                 finish();
                 return true;
             }
@@ -249,6 +254,11 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
             parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
             bundle.putSerializable(CommonData.PARAMMAP, parammap);
             NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+
+            Intent intent = new Intent("NEW_RESULT");
+            intent.putExtra(CommonData.PARAMMAP, parammap);
+            sendBroadcast(intent);
+
             finish();
         }
     };
