@@ -15,10 +15,13 @@ import com.alibaba.baichuan.android.trade.model.OpenType;
 import com.alibaba.baichuan.android.trade.model.TradeResult;
 import com.alibaba.baichuan.android.trade.page.AlibcBasePage;
 import com.alibaba.baichuan.android.trade.page.AlibcPage;
+import com.avos.avoscloud.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import app.CommonData;
+import so.bubu.Coupon.AliTrade.activity.MainActivity;
 import so.bubu.Coupon.AliTrade.activity.SearchResultActivity;
 import so.bubu.lib.helper.NavigationHelper;
 import so.bubu.lib.helper.ToastHelper;
@@ -32,9 +35,6 @@ import so.bubu.Coupon.AliTrade.activity.about.WeixinOpenActivity;
 public class UIHelper {
 
     private static UIHelper instance;
-    public static final String REGISTER_TYPE = "register_type";
-    public static final String REGISTER_PHONE = "register_phone";
-    public static final String REGISTER_ACCOUNT = "register_account";
 
     public static UIHelper getInstance() {
         if (instance == null)
@@ -42,22 +42,47 @@ public class UIHelper {
         return instance;
     }
 
+    public HashMap url2Map(String url){
+        HashMap<String, Object> parammap = null;
+        if (url != null && !(url.isEmpty())) {
+            String[] urlstring = url.split("\\?");
+            String[] parameters = urlstring[1].split("&");
+            parammap = new HashMap<>();
+            for (int i = 0; i < parameters.length; i++) {
+                String[] keyAndvalue = parameters[i].split("=");
+                parammap.put(keyAndvalue[0], keyAndvalue[1]);
+            }
+        }
+        return parammap;
+    }
+
     public void openUrl(Context context, String url) {
+        LogUtil.log.e("测试专用", "" + url);
         if (url.contains("taobao")) {
             openAlibc(context, url);
-        } else if(url.contains("redirectAppPage?")) {
-            String[] parameters = url.split("&");
-            for (int i = 0; i < parameters.length; i++) {
-                if (parameters[i].contains("page=")) {
-                    String page = parameters[i].substring(parameters[i].indexOf("=") + 1, parameters[i].length());
-                    if (page.equalsIgnoreCase("TaobaoCouponList")) {
-                        Bundle db = new Bundle();
-                        db.putString("url",url);
-                        NavigationHelper.slideActivity((Activity)context, SearchResultActivity.class, db, false);
-                        break;
-                    }
-                }
+        } else if (url.contains("redirectAppPage?")) {
+            HashMap<String, Object> parammap = url2Map(url);
+            if(parammap == null) {
+                return;
             }
+            String pagevalue = (String) parammap.get("page");
+            if("TaobaoCouponList".equalsIgnoreCase(pagevalue)) {
+                Bundle db = new Bundle();
+//                db.putString("url", url);
+                LogUtil.log.e("openUrl", "" + url);
+                db.putSerializable(CommonData.PARAMMAP,parammap);
+                NavigationHelper.slideActivity((Activity) context, SearchResultActivity.class, db, false);
+
+            }
+
+            if("PageContainer".equalsIgnoreCase(pagevalue)) {
+                Bundle db = new Bundle();
+//                db.putString("url", url);
+                db.putSerializable(CommonData.PARAMMAP, parammap);
+                LogUtil.log.e("openUrl111", "" + url);
+                NavigationHelper.alphaActivity((Activity) context, MainActivity.class, db, false);
+            }
+
         } else if (url.isEmpty()) {
             NavigationHelper.openBrowse(url, (Activity) context);
         } else {

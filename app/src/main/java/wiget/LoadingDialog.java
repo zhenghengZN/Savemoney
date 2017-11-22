@@ -14,6 +14,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.scwang.smartrefresh.layout.internal.ProgressDrawable;
+
 import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.ResourceHelper;
 import so.bubu.Coupon.AliTrade.R;
@@ -88,6 +90,9 @@ public class LoadingDialog extends Dialog {
         View layout = inflater.inflate(R.layout.dialog_loading, null);
         setContentView(layout);
         loading = (ImageView) layout.findViewById(R.id.rotateloading);
+        mProgressDrawable = new ProgressDrawable();
+        mProgressDrawable.setColor(0xff666666);
+        loading.setImageDrawable(mProgressDrawable);
         tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
         // 设置window属性
 
@@ -103,7 +108,7 @@ public class LoadingDialog extends Dialog {
 //        this.setCancelable(false);
         this.setCanceledOnTouchOutside(false);
     }
-
+    private ProgressDrawable mProgressDrawable;
     public LoadingDialog(Context context, boolean cancelalable) {
         super(context, R.style.Dialog);
         mContext = context;
@@ -112,6 +117,9 @@ public class LoadingDialog extends Dialog {
         View layout = inflater.inflate(R.layout.dialog_loading, null);
         setContentView(layout);
         loading = (ImageView) layout.findViewById(R.id.rotateloading);
+        mProgressDrawable = new ProgressDrawable();
+        mProgressDrawable.setColor(0xff666666);
+        loading.setImageDrawable(mProgressDrawable);
         tvMsg = (TextView) layout.findViewById(R.id.tv_msg);
         // 设置window属性
 
@@ -133,16 +141,17 @@ public class LoadingDialog extends Dialog {
     }
 
     private void showAnim() {
-        if (Helper.isNotNull(loading) && Helper.isNull(anim)) {
-            anim = new ScaleAnimation(1.0f, 1.0f, 1.0f, 0.9f, 0, ResourceHelper.Dp2Px(50));
-            anim.setDuration(200);
-            anim.setRepeatCount(-1);
-            anim.setRepeatMode(ValueAnimator.REVERSE);
-            loading.setAnimation(anim);
-        }
-        if (Helper.isNotNull(anim)) {
-            anim.start();
-        }
+        mProgressDrawable.start();
+//        if (Helper.isNotNull(loading) && Helper.isNull(anim)) {
+//            anim = new ScaleAnimation(1.0f, 1.0f, 1.0f, 0.9f, 0, ResourceHelper.Dp2Px(50));
+//            anim.setDuration(200);
+//            anim.setRepeatCount(-1);
+//            anim.setRepeatMode(ValueAnimator.REVERSE);
+//            loading.setAnimation(anim);
+//        }
+//        if (Helper.isNotNull(anim)) {
+//            anim.start();
+//        }
     }
 
     public void showLoading(String msg) {
@@ -184,7 +193,7 @@ public class LoadingDialog extends Dialog {
             if (Helper.isNotNull(loading)) {
                 loading.clearAnimation();
             }
-
+            mProgressDrawable.stop();
             instance.dismiss();
         }
     }

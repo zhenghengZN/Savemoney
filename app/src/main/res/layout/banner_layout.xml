@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/fl_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/br_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:delay_time="2000"
+            app:indicator_drawable_selected="@drawable/bg_select_circle"
+            app:indicator_drawable_unselected="@drawable/bg_un_select_circle"
+            app:indicator_height="5dp"
+            app:indicator_margin="2dp"
+            app:indicator_width="5dp"
+            app:is_auto_play="true" />
+    </FrameLayout>
+
+</LinearLayout>

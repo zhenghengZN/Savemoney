@@ -144,7 +144,7 @@ public class LoadingActivity extends AppCompatActivity {
 
 
         Glide.with(this)
-                .load(R.drawable.app_load)
+                .load(R.drawable.app_loading)
                 .override(ScreenUtils.getScreenWidth(this), ScreenUtils.getScreenHeight(this))
                 .centerCrop()
                 .into(mImgBackgroup);

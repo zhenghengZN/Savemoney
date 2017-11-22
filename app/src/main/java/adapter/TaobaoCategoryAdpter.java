@@ -5,10 +5,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.ViewGroup;
 
 import com.avos.avoscloud.LogUtil;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 import app.CommonData;
+import bean.TaobaoCatetory;
 import so.bubu.Coupon.AliTrade.fragment.TaobaoContentFragment;
 
 
@@ -17,41 +24,58 @@ import so.bubu.Coupon.AliTrade.fragment.TaobaoContentFragment;
  */
 public class TaobaoCategoryAdpter extends FragmentStatePagerAdapter {
 
-//    private List<Category> categoryList = new ArrayList<>();
-    public static String[] categoryList;
+    private FragmentManager fm;
     private TaobaoContentFragment taobaoFragment;
+    private ArrayList<HashMap<String, Object>> Params = new ArrayList<>();
+    private HashMap<Integer, TaobaoContentFragment> fragmentlist = new HashMap<>();
+
     public TaobaoCategoryAdpter(FragmentManager fm) {
         super(fm);
+        this.fm = fm;
     }
 
-    public TaobaoCategoryAdpter(FragmentManager fm, String[] categoryList) {
+    public TaobaoCategoryAdpter(FragmentManager fm, ArrayList<HashMap<String, Object>> Params) {
         super(fm);
-        this.categoryList = categoryList;
+        this.Params = Params;
+        this.fm = fm;
     }
-
 
     @Override
     public Fragment getItem(int position) {
-        taobaoFragment = new TaobaoContentFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(CommonData.CATEGORY,categoryList[position]);
-        taobaoFragment.setArguments(bundle);
+        if (fragmentlist.get(position) != null) {
+            taobaoFragment = fragmentlist.get(position);
+        } else {
+            taobaoFragment = new TaobaoContentFragment();
+            Bundle bundle = new Bundle();
+            HashMap<String, Object> categoryMap = Params.get(position);
+            bundle.putSerializable(CommonData.PARAMMAP, categoryMap);
+            taobaoFragment.setArguments(bundle);
+            fragmentlist.put(position, taobaoFragment);
+        }
         return taobaoFragment;
     }
 
     @Override
     public int getCount() {
-        if(categoryList != null) {
-            return categoryList.length;
-        }
-        return 0;
+        return Params.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if(categoryList != null) {
-            return categoryList[position];
-        }
-        return "";
+        return Params.get(position).get(CommonData.CATEGORY).toString();
     }
+
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        Fragment fragment = (Fragment) super.instantiateItem(container, position);
+        this.fm.beginTransaction().show(fragment).commit();
+        return fragment;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        Fragment fragment = fragmentlist.get(position);
+        fm.beginTransaction().hide(fragment).commit();
+    }
+
 }

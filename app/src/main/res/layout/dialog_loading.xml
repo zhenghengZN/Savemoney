@@ -4,17 +4,15 @@
     android:layout_height="wrap_content"
     android:background="@drawable/loading_background"
     android:orientation="vertical"
-    android:paddingBottom="18dp"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:paddingTop="18dp">
+    android:padding="20dp"
+   >
 
     <ImageView
         android:id="@+id/rotateloading"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/pho_loading" />
+         />
 
     <TextView
         android:id="@+id/tv_msg"
@@ -24,6 +22,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/loading"
+        android:visibility="gone"
         android:textColor="@color/color_ffffff"
         android:textSize="14sp" />
 </LinearLayout>

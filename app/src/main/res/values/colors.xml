@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#FF6F06</color>
     <color name="colorPrimaryDark">#82cd6b</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="color_ff6f06">#FF6F06</color>
-    <color name="color_ff5000">#FF5000</color>
+
+    <!-- 省钱达人-->
+    <!--<color name="color_ff6f06">#FF6F06</color>-->
+    <!--<color name="color_ff5000">#FF5000</color>-->
+    <!--<color name="colorPrimary">#FF6F06</color>-->
+
+     <!--折扣星球-->
+    <color name="color_ff6f06">#ec2050</color>
+    <color name="color_ff5000">#f50449</color>
+    <color name="colorPrimary">#ec2050</color>
 
     <color name="color_888888">#888888</color>
     <color name="color_d8d8d8">#D8D8D8</color>

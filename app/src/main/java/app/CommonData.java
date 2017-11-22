@@ -8,6 +8,9 @@ public class CommonData {
     public static final String CATEGORY = "category";
     public static final String KEYWORD = "keywords";
     public static final String SUBCATEGORY = "subcategory";
+    public static final String PARAMMAP = "parammap";
+    public static final String SKIP = "skip";
+    public static final String LIMIT = "limit";
 
     public static final int TAOBAO = 12;
 }

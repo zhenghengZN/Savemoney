@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--省钱达人-->
+    <!--<color name="colorPrimary">#FF6F06</color>-->
 
-    <color name="colorPrimary">#FF6F06</color>
+    <color name="colorPrimary">#ec2050</color>
+    <color name="zhekouxingqiubtn">#f50449</color>
+
     <color name="colorPrimaryDark">#083939</color>
     <color name="colorAccent">#FF4081</color>
 

@@ -1,8 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="so.bubu.cityguide.sydney.place.ui.TaobaoContentFragment">
 
@@ -18,44 +18,79 @@
             android:layout_height="match_parent"
             app:srlAccentColor="@android:color/white"
             app:srlEnableAutoLoadmore="false"
-            app:srlEnablePreviewInEditMode="true"
-            app:srlEnableLoadmoreWhenContentNotFull="true">
+            app:srlEnableLoadmoreWhenContentNotFull="true"
+            app:srlEnablePreviewInEditMode="false"
+            app:srlFixedHeaderViewId="@+id/HeaderView">
+
             <com.scwang.smartrefresh.layout.header.ClassicsHeader
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srlClassicsSpinnerStyle="Translate"/>
+                app:srlClassicsSpinnerStyle="Translate" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcv_information"
-                android:scrollbars="vertical"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbarSize="4dp"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcv_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#33e2e2e2"
+                    android:clipToPadding="false"
+                    android:scrollbarSize="4dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="vertical" />
+
+                <FrameLayout
+                    android:id="@+id/HeaderView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:scrollbars="none"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </FrameLayout>
 
             <com.scwang.smartrefresh.layout.footer.ClassicsFooter
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srlClassicsSpinnerStyle="Translate"
-              />
+                app:srlClassicsSpinnerStyle="Translate" />
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     </LinearLayout>
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/no_data_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:visibility="gone"-->
-        <!--android:background="#fff">-->
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="没有数据"-->
-            <!--android:gravity="center"-->
-            <!--android:textSize="15sp"-->
-            <!--android:layout_gravity="center"/>-->
-    <!--</LinearLayout>-->
+    <RelativeLayout
+        android:id="@+id/no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:text="正在加载中..." />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

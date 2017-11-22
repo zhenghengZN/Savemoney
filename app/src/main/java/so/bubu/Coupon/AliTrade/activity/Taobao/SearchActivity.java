@@ -18,9 +18,10 @@ import com.avos.avoscloud.LogUtil;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
-import adapter.SearchAdapter;
+
 import adapter.SearchHistoryAdapter;
 import app.CommonData;
 import common.base.TitleAppCompatActivity;
@@ -228,8 +229,9 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
             if (KeyEvent.KEYCODE_ENTER == keyCode && KeyEvent.ACTION_DOWN == event.getAction()) {
                 search();
                 Bundle bundle = new Bundle();
-                bundle.putString(CommonData.KEYWORD, etSearch.getText().toString());
-                bundle.putString(CommonData.CATEGORY, null);
+                HashMap<String, Object> parammap = new HashMap<>();
+                parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
+                bundle.putSerializable(CommonData.PARAMMAP, parammap);
                 NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
                 finish();
                 return true;
@@ -243,9 +245,9 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             setSearchKey(histories.get(position).getSearchContent(), false);
             Bundle bundle = new Bundle();
-            bundle.putString(CommonData.KEYWORD, etSearch.getText().toString());
-            bundle.putString(CommonData.CATEGORY, null);
-            bundle.putString(CommonData.SUBCATEGORY, null);
+            HashMap<String, Object> parammap = new HashMap<>();
+            parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
+            bundle.putSerializable(CommonData.PARAMMAP, parammap);
             NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
             finish();
         }

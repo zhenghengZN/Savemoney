@@ -19,6 +19,7 @@ public abstract class StatusBarBaseCompatActivity extends AppBaseCompatActivity 
     }
 
     protected void setStatusBar() {
+//        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
     }
 

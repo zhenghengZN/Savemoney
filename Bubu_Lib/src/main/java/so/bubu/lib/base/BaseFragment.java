@@ -3,6 +3,7 @@ package so.bubu.lib.base;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public abstract class BaseFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		contentView = new View(act);
+		Log.e(TAG, "onCreate ");
 	}
 
 	/**
@@ -52,8 +54,13 @@ public abstract class BaseFragment extends Fragment {
 		contentView = view;
 	}
 
+	public View getContentView() {
+		return contentView;
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Log.e(TAG, "onCreateView ");
 		initView();
 		initData();
 		return contentView;
@@ -78,7 +85,7 @@ public abstract class BaseFragment extends Fragment {
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-
+		Log.e(TAG, "onDestroyView ");
 		if (Helper.isNotNull(contentView)) {
 			((ViewGroup) contentView.getParent()).removeView(contentView);
 		}
@@ -87,6 +94,7 @@ public abstract class BaseFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		Log.e(TAG, "onDestroy ");
 	}
 
 	/**

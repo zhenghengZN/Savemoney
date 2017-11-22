@@ -215,6 +215,16 @@ public class TaobaoCoupons {
         private String type;
         private int width;
         private int columnPerRow;
+        private String backgroundImageUrl;
+
+        public String getBackgroundImageUrl() {
+            return backgroundImageUrl;
+        }
+
+        public void setBackgroundImageUrl(String backgroundImageUrl) {
+            this.backgroundImageUrl = backgroundImageUrl;
+        }
+
         private String style;
         //        @com.google.gson.annotations.SerializedName("objects")
         private List<ObjectsBean> objects;
@@ -277,6 +287,43 @@ public class TaobaoCoupons {
             private String url;
             private String name;
             private String keywords;
+            private float startXPercentage;
+            private float startYPercentage;
+            private float widthPercentage;
+
+            public float getStartXPercentage() {
+                return startXPercentage;
+            }
+
+            public void setStartXPercentage(float startXPercentage) {
+                this.startXPercentage = startXPercentage;
+            }
+
+            public float getStartYPercentage() {
+                return startYPercentage;
+            }
+
+            public void setStartYPercentage(float startYPercentage) {
+                this.startYPercentage = startYPercentage;
+            }
+
+            public float getWidthPercentage() {
+                return widthPercentage;
+            }
+
+            public void setWidthPercentage(float widthPercentage) {
+                this.widthPercentage = widthPercentage;
+            }
+
+            public float getHeigthPercentage() {
+                return heigthPercentage;
+            }
+
+            public void setHeigthPercentage(float heigthPercentage) {
+                this.heigthPercentage = heigthPercentage;
+            }
+
+            private float heigthPercentage;
 
             public String getPicUrl() {
                 return picUrl;

@@ -1,6 +1,7 @@
 package app;
 
 
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
@@ -34,11 +35,9 @@ import static app.AppConfig.PACKAGE_KEY;
  */
 public class CityGuideApplication extends BaseApplication {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
-
         initLeanCloud();
         DbManager.getInstance().initialize();
 
@@ -103,6 +102,7 @@ public class CityGuideApplication extends BaseApplication {
 
 
     }
+
 
 
 }

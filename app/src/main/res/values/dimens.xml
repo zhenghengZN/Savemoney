@@ -20,5 +20,6 @@
     <dimen name="custom_enter_message_icon">40dp</dimen>
     <dimen name="custom_enter_message_enter">150dp</dimen>
     <dimen name="custom_enter_message_space">10dp</dimen>
+    <dimen name="itemDeciration">10dp</dimen>
 
 </resources>

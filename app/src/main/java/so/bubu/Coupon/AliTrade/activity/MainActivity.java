@@ -1,5 +1,6 @@
 package so.bubu.Coupon.AliTrade.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -12,8 +13,11 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.LogUtil;
 import com.avos.avoscloud.PushService;
 
+import java.util.HashMap;
+
 import adapter.BaseCallFunctionBackListener;
 import adapter.MainPagerAdapter;
+import app.CommonData;
 import bean.TaobaoCoupons;
 import common.base.StatusBarBaseCompatActivity;
 import iconicfont.IconicFontDrawable;
@@ -65,10 +69,14 @@ public class MainActivity extends StatusBarBaseCompatActivity {
         super.setStatusBar();
     }
 
+//    private String url = null;
+    private HashMap<String, Object> parammap;
     @Override
     protected void initView() {
         super.initView();
 
+        Intent intent = getIntent();
+        parammap = (HashMap<String, Object>) intent.getSerializableExtra(CommonData.PARAMMAP);
         vpMain = findView(R.id.vp_main);
 
         View view = findViewById(R.id.rb_about);
@@ -84,24 +92,6 @@ public class MainActivity extends StatusBarBaseCompatActivity {
         taobaoTV.setText(R.string.text_city_user);
         taobaoIcon = (ImageView) view.findViewById(R.id.iv_icon);
         view.setOnClickListener(onClickListener);
-
-
-        InformationHelper.getInstance().getTaobaoCoupons(0, 20, null, "泡面", null, new BaseCallFunctionBackListener() {
-            @Override
-            public void callSuccess(boolean result, String jsonstr) {
-                if (result) {
-                    LogUtil.log.e("getTaobaoCouponscallSuccess",jsonstr);
-                } else {
-
-                }
-
-            }
-
-            @Override
-            public void callFailure(int type, AVException e) {
-
-            }
-        });
 
         clickActivity();
     }
@@ -126,7 +116,7 @@ public class MainActivity extends StatusBarBaseCompatActivity {
         //TODO
         taobaoIconBg = IconicFontUtil.createIconicFontDrawable(CityGuideIcon.ICON_NEW_GOODS);
 
-        mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
+        mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), parammap);
         vpMain.setAdapter(mainPagerAdapter);
         //vpMain.setOffscreenPageLimit(0);
 
@@ -235,7 +225,8 @@ public class MainActivity extends StatusBarBaseCompatActivity {
         if (doubleBackToExitPressedOnce) {
             int currentItem = vpMain.getCurrentItem();
             SharedPreferencesHelp.setFirstPageItem(currentItem);
-            AppManager.getAppManager().AppExit();
+//            AppManager.getAppManager().AppExit();
+            finish();
             return;
         }
         doubleBackToExitPressedOnce = true;

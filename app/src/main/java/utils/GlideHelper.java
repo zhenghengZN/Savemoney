@@ -339,7 +339,7 @@ public class GlideHelper {
                 .load(url)
                 .asBitmap()
                 .placeholder(R.drawable.imagebackground)
-                .error(R.drawable.loading)
+                .error(R.drawable.imagebackground)
                 .override(targetWidth, targetHeight)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .centerCrop()
