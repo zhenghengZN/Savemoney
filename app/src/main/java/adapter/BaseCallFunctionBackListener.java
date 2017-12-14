@@ -4,8 +4,7 @@ import android.view.View;
 
 import com.avos.avoscloud.AVException;
 
-import so.bubu.Coupon.AliTrade.R;
-import so.bubu.lib.helper.Helper;
+import com.zhekouxingqiu.main.R;
 import so.bubu.lib.helper.ToastHelper;
 
 import utils.CallFunctionBackListener;

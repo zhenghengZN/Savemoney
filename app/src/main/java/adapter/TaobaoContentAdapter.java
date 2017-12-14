@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import bean.TaobaoCoupons;
 import common.CommonMethod;
 import so.bubu.lib.helper.ResourceHelper;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 import utils.GlideHelper;
 
 /**

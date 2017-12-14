@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_fbf7ed"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/common_title"
+            layout="@layout/common_activity_menu"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="25dp"
+            android:background="@color/color_d8d8d8"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_callback"
+                style="@style/linearLayoutMineInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/labelMineInfo"
+                    android:text="@string/user_callback"/>
+
+                <View
+                    android:id="@+id/v_click_icon1"
+                    style="@style/iconClickMe"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_d8d8d8"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_evaluation"
+                style="@style/linearLayoutMineInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/labelMineInfo"
+                    android:text="@string/user_evaluation"/>
+
+                <View
+                    android:id="@+id/v_click_icon2"
+                    style="@style/iconClickMe"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:visibility="gone"
+                android:background="@color/color_d8d8d8"/>
+
+
+            <LinearLayout
+                android:id="@+id/ll_share"
+                style="@style/linearLayoutMineInfo"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/labelMineInfo"
+                    android:text="@string/share_bubu_to_friend"/>
+
+                <View
+                    android:id="@+id/v_click_icon3"
+                    style="@style/iconClickMe"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

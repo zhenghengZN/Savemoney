@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 填充颜色 -->
+    <solid android:color="@color/color_f2f2f2" />
+
+    <corners android:radius="20dp" />
+
+    <stroke
+        android:width="0.5dp"
+        android:color="@color/color_d2d2d2"
+        android:dashGap="0dp"
+        android:dashWidth="0dp" />
+
+</shape>

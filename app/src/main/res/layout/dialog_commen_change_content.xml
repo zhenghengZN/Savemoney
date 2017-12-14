@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_change"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:src="@drawable/pho_bg_popup" />
+
+    <View
+        style="@style/normal_line"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp" />
+
+    <so.bubu.lib.wiget.ClearEditText
+        android:id="@+id/tv_show_content"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/bg_comment_dialog_name"
+        android:gravity="center_vertical"
+        android:hint="@string/text_change_user_name"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textColorHint="#B2B2B2"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <View
+            android:id="@+id/vw_line"
+            android:layout_width="0.5dp"
+            android:layout_height="0.5dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/tv_change_no"
+            android:layout_width="122dp"
+            android:layout_height="44dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_toLeftOf="@+id/vw_line"
+            android:background="@drawable/bg_dialog_change_no"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_change_yes"
+            android:layout_width="122dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="14.5dp"
+            android:layout_toRightOf="@+id/vw_line"
+            android:background="@drawable/bg_dialog_change_yes"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

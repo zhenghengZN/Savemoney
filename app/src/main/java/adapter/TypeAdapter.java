@@ -1,32 +1,20 @@
 package adapter;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.LogUtil;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 
-import app.CityGuideApplication;
-import app.CommonData;
 import bean.TaobaoCoupons;
-import bean.TaobaoItemSubcategories;
-import so.bubu.Coupon.AliTrade.R;
-import so.bubu.lib.base.adapter.BasicsAdapter;
-import so.bubu.lib.helper.DeviceHelper;
+import com.zhekouxingqiu.main.R;
 import so.bubu.lib.helper.ResourceHelper;
 import utils.GlideHelper;
 

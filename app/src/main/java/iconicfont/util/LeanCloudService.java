@@ -4,15 +4,12 @@ import android.content.Context;
 
 import com.avos.avoscloud.AVCloud;
 import com.avos.avoscloud.FunctionCallback;
-import com.avos.avoscloud.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 import app.CityGuideApplication;
-import so.bubu.Coupon.AliTrade.R;
-import so.bubu.lib.helper.ResourceHelper;
 
 /**
  * Created by zhengheng on 17/9/23.

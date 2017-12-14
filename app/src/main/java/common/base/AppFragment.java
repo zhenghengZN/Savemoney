@@ -9,7 +9,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import common.LeadCloudHelp;
 import common.MobclickHelp;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 
 /**

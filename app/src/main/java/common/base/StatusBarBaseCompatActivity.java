@@ -5,7 +5,7 @@ import android.view.View;
 
 
 import so.bubu.lib.helper.StatusBarUtil;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * Created by wangwn on 2016/4/13.

@@ -14,6 +14,21 @@
  * limitations under the License.
  */
 package iconicfont;
+/*
+ * Copyright (C) 2013 Artur Termenji
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -24,8 +39,10 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import iconicfont.icon.Icon;
 
+import com.avos.avoscloud.LogUtil;
+
+import iconicfont.icon.Icon;
 
 /**
  * A custom {@link Drawable} which can display icons from icon fonts.
@@ -54,7 +71,7 @@ public class IconicFontDrawable extends Drawable {
     private char[] mIconUtfChars;
 
     public IconicFontDrawable(Context context) {
-        mContext = context;
+        mContext = context.getApplicationContext();
 
         mIconPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
@@ -180,20 +197,29 @@ public class IconicFontDrawable extends Drawable {
     @Override
     public void draw(Canvas canvas) {
         if (mIcon != null) {
-             Rect viewBounds = getBounds();
+            Rect viewBounds = getBounds();
 
             updatePaddingBounds(viewBounds);
             updateTextSize(viewBounds);
             offsetIcon(viewBounds);
 
+
+
             mPath.close();
 
+            if (mDrawContour) {
+//                canvas.drawPath(mPath, mContourPaint);
+            }
+
+//            canvas.drawPath(mPath, mIconPaint);
 
             viewBounds = getBounds();
 
             updatePaddingBounds(viewBounds);
             updateTextSize(viewBounds);
             offsetIcon(viewBounds);
+
+
 
             mPath.close();
 
@@ -233,6 +259,7 @@ public class IconicFontDrawable extends Drawable {
     private void updateIcon(Icon icon) {
         mIcon = icon;
         mIconUtfChars = Character.toChars(icon.getIconUtfValue());
+        LogUtil.log.e("zhengheng","" + mIconUtfChars);
         mIconPaint.setTypeface(mIcon.getIconicTypeface().getTypeface(mContext));
     }
 
@@ -253,7 +280,7 @@ public class IconicFontDrawable extends Drawable {
         mIconPaint.setTextSize(textSize);
 
         mIconPaint.getTextPath(mIconUtfChars, 0, mIconUtfChars.length,
-                - 4.2f, viewBounds.height() - 6, mPath);
+                0, viewBounds.height(), mPath);
         mPath.computeBounds(mPathBounds, true);
 
         float deltaWidth = ((float) mPaddingBounds.width() / mPathBounds.width());
@@ -263,10 +290,10 @@ public class IconicFontDrawable extends Drawable {
 
         mIconPaint.setTextSize(textSize);
 
-        mPath.reset();		// hack for Kindle HDX
-        
+        //mPath.reset();		// hack for Kindle HDX
+
         mIconPaint.getTextPath(mIconUtfChars, 0, mIconUtfChars.length,
-                - 4.2f, viewBounds.height() - 6, mPath);
+                0, viewBounds.height(), mPath);
         mPath.computeBounds(mPathBounds, true);
     }
 

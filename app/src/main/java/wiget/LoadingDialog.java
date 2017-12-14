@@ -1,6 +1,5 @@
 package wiget;
 
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -10,15 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scwang.smartrefresh.layout.internal.ProgressDrawable;
 
 import so.bubu.lib.helper.Helper;
-import so.bubu.lib.helper.ResourceHelper;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * loading_default dialog

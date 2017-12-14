@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_content"
         android:layout_width="match_parent"
-        android:layout_height="137dp"
-      >
+        android:layout_height="137dp">
 
         <ImageView
             android:id="@+id/product_img"
             android:layout_width="115dp"
             android:layout_height="115dp"
+            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_marginLeft="12dp"
-            android:scaleType="centerCrop"
-            android:layout_centerVertical="true" />
+            android:scaleType="centerCrop" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="117dp"
-        android:layout_centerVertical="true"
-        android:layout_alignTop="@+id/product_img"
-        android:layout_toRightOf="@+id/product_img"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="117dp"
+            android:layout_alignTop="@+id/product_img"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/product_img"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
 
             <TextView
                 android:id="@+id/taobao_pro_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="top"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
-                android:textColor="@android:color/black"
                 android:text="aaa"
-                android:layout_gravity="top"
+                android:textColor="@android:color/black"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -54,32 +53,30 @@
                     android:id="@+id/taobao_platform"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:src="@drawable/taobao_logo_30"
                     android:layout_gravity="center_vertical"
                     android:scaleType="centerCrop"
-                    />
+                    android:src="@drawable/taobao_logo_30" />
+
                 <TextView
                     android:id="@+id/taobao_discountPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="商品"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="4dp"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:text="商品"
                     android:textColor="@color/color_b2b2b2"
-                    />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/biz30Day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center_vertical|right"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="12sp"
                     android:textColor="@color/color_b2b2b2"
-                    />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -93,44 +90,44 @@
                     android:id="@+id/taobao_much"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_ff6f06"
-                    android:gravity="center"
                     android:layout_alignParentBottom="true"
-                    android:textSize="13sp"
-                    android:text="劵后¥"/>
+                    android:gravity="center"
+                    android:text="劵后¥"
+                    android:textColor="@color/color_ff6f06"
+                    android:textSize="13sp" />
 
 
                 <TextView
                     android:id="@+id/taobao_finalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_ff5000"
-                    android:layout_toRightOf="@+id/taobao_much"
-                    android:layout_alignParentBottom="true"
-                    android:textSize="23sp"
-                    android:layout_marginLeft="1dp"
                     android:layout_alignBaseline="@+id/taobao_much"
-                    android:text="价格"/>
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="1dp"
+                    android:layout_toRightOf="@+id/taobao_much"
+                    android:text="价格"
+                    android:textColor="@color/color_ff5000"
+                    android:textSize="23sp" />
 
                 <TextView
                     android:id="@+id/couponAmount"
                     android:layout_width="95dp"
                     android:layout_height="24dp"
-                    android:text="优惠卷"
-                    android:gravity="center"
-                    android:textSize="15sp"
-                    android:textColor="@android:color/white"
-                    android:layout_alignParentRight="true"
                     android:layout_alignBottom="@+id/taobao_finalPrice"
-                    android:layout_marginRight="1dp"
+                    android:layout_alignParentRight="true"
                     android:layout_marginBottom="1dp"
-                    android:background="@drawable/taobao_bg"/>
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/taobao_bg"
+                    android:gravity="center"
+                    android:text="优惠卷"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
 
 
             </RelativeLayout>
 
         </RelativeLayout>
     </RelativeLayout>
-    <View
-        style="@style/normal_line"/>
+
+    <View style="@style/normal_line" />
 </LinearLayout>

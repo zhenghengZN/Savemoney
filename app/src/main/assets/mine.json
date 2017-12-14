@@ -1,0 +1,48 @@
+ [
+  {
+  "type": "LoginCell",
+  "objects": [
+              {
+              "title":"快速登录",
+              "iconFontCode":"0xe77c",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "/redirectAction?action=SignUpOrLoginWithMobilePhone"
+              }
+              ]
+  },
+  {
+  "type": "Cell",
+  "objects": [
+              {
+              "title":"绑定淘宝",
+              "iconFontCode":"0xe67c",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "/redirectAction?action=TaobaoLogin"
+              },
+              {
+              "title":"我的订单",
+              "iconFontCode":"0xe672",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "https://h5.m.taobao.com/mlapp/olist.html"
+              },
+              {
+              "title":"我的购物车",
+              "iconFontCode":"0xe694",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "https://h5.m.taobao.com/mlapp/cart.html"
+              },
+              {
+              "title":"浏览记录",
+              "iconFontCode":"0xe68d",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "/redirectAppPage?page=BrowseRecord&pageTitle=浏览记录"
+              },
+              {
+              "title":"设置",
+              "iconFontCode":"0xe692",
+              "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+              "url": "/redirectAppPage?page=StaticList&pageTitle=设置&jsonFile=setting"
+              }
+              ]
+  }
+  ]

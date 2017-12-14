@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimaryDark">#82cd6b</color>
+    <!--<color name="colorPrimaryDark">#82cd6b</color>-->
+    <color name="colorPrimaryDark">#ec2050</color>
     <color name="colorAccent">#FF4081</color>
 
     <!-- 省钱达人-->
@@ -14,6 +15,9 @@
     <color name="color_ff5000">#f50449</color>
     <color name="colorPrimary">#ec2050</color>
 
+
+
+    <color name="common_bg">#33e2e2e2</color>
     <color name="color_888888">#888888</color>
     <color name="color_d8d8d8">#D8D8D8</color>
     <color name="color_686868">#686868</color>

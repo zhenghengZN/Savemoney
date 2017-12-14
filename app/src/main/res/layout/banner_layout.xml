@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:orientation="vertical" android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
 
-    <FrameLayout
-        android:id="@+id/fl_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
+    <!--&lt;!&ndash;<FrameLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/fl_activity"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:visibility="gone">&ndash;&gt;-->
 
-        <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/br_activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:delay_time="2000"
-            app:indicator_drawable_selected="@drawable/bg_select_circle"
-            app:indicator_drawable_unselected="@drawable/bg_un_select_circle"
-            app:indicator_height="5dp"
-            app:indicator_margin="2dp"
-            app:indicator_width="5dp"
-            app:is_auto_play="true" />
-    </FrameLayout>
+        <!--<com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/br_activity"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:delay_time="2000"-->
+            <!--app:indicator_drawable_selected="@drawable/bg_select_circle"-->
+            <!--app:indicator_drawable_unselected="@drawable/bg_un_select_circle"-->
+            <!--app:indicator_height="5dp"-->
+            <!--app:indicator_margin="2dp"-->
+            <!--app:indicator_width="5dp"-->
+            <!--app:is_auto_play="true" />-->
+    <!--&lt;!&ndash;</FrameLayout>&ndash;&gt;-->
 
-</LinearLayout>
+<!--</LinearLayout>-->
+<com.youth.banner.Banner xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/br_activity"
+android:layout_width="match_parent"
+android:layout_height="150dp"
+    app:indicator_drawable_selected="@drawable/bg_select_circle"
+    app:indicator_drawable_unselected="@drawable/bg_un_select_circle"
+    app:indicator_height="5dp"
+    app:indicator_margin="2dp"
+    app:indicator_width="5dp"
+app:is_auto_play="true"/>

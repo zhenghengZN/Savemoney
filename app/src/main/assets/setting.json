@@ -1,0 +1,35 @@
+[
+ {
+ "type": "Cell",
+ "objects": [
+             {
+             "title":"清理缓存",
+             "iconFontCode":"0xe6ca;",
+             "picUrl": "http://ac-egDFgpKJ.clouddn.com/c7a93b81213187e02d9a.jpg",
+             "url": "/redirectAction?action=ClearCache"
+             }
+             ]
+ },
+ {
+ "type": "CellOther",
+ "objects": [
+             {
+             "title":"折扣星球粉丝福利群",
+             "detail":"bubu-fans",
+             "iconFontCode":"0xe6a4;",
+             "url": "/redirectAction?action=CopyText&text=bubu-editor"
+             },
+             {
+             "title":"官方新浪微博",
+             "detail":"@折扣星球酱",
+             "iconFontCode":"0xe6a5;",
+             "url": "https://weibo.com/mialuxury"
+             },
+             {
+             "title":"版本号",
+             "detail":"1.0",
+             "iconFontCode":"0xe6c5;"
+             }
+             ]
+ }
+ ]

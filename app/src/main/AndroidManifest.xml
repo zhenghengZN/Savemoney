@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="so.bubu.Coupon.AliTrade">
+    package="com.zhekouxingqiu.main" >
 
     <!-- 外部存储写入权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -55,6 +55,8 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="ANDROID.PERMISSION.READ_PHONE_STATE"/>
+
 
     <application
         android:name="app.CityGuideApplication"
@@ -63,12 +65,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/BaseAppTheme.NoActionBar.SwipeBack"
-        tools:replace="android:allowBackup">
-
+        tools:replace="android:allowBackup" >
         <meta-data
             android:name="com.alibaba.app.pid"
             android:value="mm_119950409_20916506_70766512" />
-
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="5a04fd02f43e485a9b0000f1" />
@@ -80,8 +80,8 @@
             android:value="GlideModule" />
 
         <activity
-            android:name=".activity.LoadingActivity"
-            android:screenOrientation="portrait">
+            android:name="com.zhekouxingqiu.main.activity.LoadingActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,12 +92,12 @@
         <service android:name="com.avos.avoscloud.PushService" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.zhekouxingqiu.main.activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize"
-            android:screenOrientation="portrait"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -109,16 +109,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.about.AboutAuthorActivity"
+            android:name="com.zhekouxingqiu.main.activity.about.AboutAuthorActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.about.WeixinOpenActivity"
+            android:name="com.zhekouxingqiu.main.activity.about.WeixinOpenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WebViewActivity"
+            android:name="com.zhekouxingqiu.main.activity.WebViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.Taobao.SearchActivity"
+            android:name="com.zhekouxingqiu.main.activity.Taobao.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.alibaba.baichuan.android.trade.ui.activity.AlibcWebViewActivity"
@@ -127,9 +127,71 @@
             android:name="com.ali.auth.third.ui.LoginWebViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SearchResultActivity"
+            android:name="com.zhekouxingqiu.main.activity.SearchResultActivity"
             android:label="@string/title_activity_search_result"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.login.StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.login.ForgetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.login.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.My.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.about.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.about.SupportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.about.BindingPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.about.UserCallbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.login.Login2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.UserInfoActivity"
+            android:label="@string/title_activity_user_info" />
+        <activity
+            android:name="utils.photopicker.PhotoPickerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.bubu.steps" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="utils.photopicker.PhotoPagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.bubu.steps" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.My.CropNewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" >
+            <intent-filter>
+                <action android:name="com.bubu.steps" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zhekouxingqiu.main.activity.BrowseRecordActivity"
+            android:label="@string/title_activity_browse_record" >
+        </activity>
     </application>
 
 </manifest>

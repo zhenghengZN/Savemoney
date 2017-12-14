@@ -9,14 +9,15 @@
     <string name="text_city_find_sydney">发现悉尼</string>
     <string name="text_city_raiders">城市攻略</string>
     <string name="text_city_dynamic">动态</string>
-    <string name="text_city_user">淘宝优惠卷</string>
+    <string name="text_city_user">优惠卷</string>
+    <string name="text_title_my">我的</string>
     <string name="text_city_find">关于我们</string>
     <string name="app_exit">再按一次退出</string>
     <string name="error_unknown_url">无法识别的网址</string>
     <string name="error_url">无法打开该链接</string>
     <string name="network_error">网络不可用</string>
     <string name="text_net_no">亲，网络不给力哦～</string>
-    <string name="text_main_taobao">淘宝天猫优惠卷</string>
+    <string name="text_main_taobao">精选优惠卷</string>
     <string name="title_activity_setting">关于我们</string>
     <string name="title_download">下载</string>
     <string name="text_city_menu">菜单</string>
@@ -58,4 +59,163 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
+
+    <!-- 我的页面-->
+    <string name="text_my_order">我的订单</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="text_my_information">我的消息</string>
+    <string name="support">支持与反馈</string>
+    <string name="setting">设置</string>
+    <string name="my_name_go">我的</string>
+    <string name="username">用户名</string>
+    <string name="my_feed">动态</string>
+    <string name="my_count">积分</string>
+    <string name="my_foucs">关注</string>
+    <string name="my_followee">粉丝</string>
+    <string name="user_desc">编辑或查看个人信息</string>
+    <string name="user_un_desc">此人很懒，没有发表任何个性签名…</string>
+    <string name="my_user_name">登录/注册</string>
+    <string name="text_new">NEW</string>
+    <string name="text_city_information">消息</string>
+    <string name="user_callback">用户反馈</string>
+    <string name="user_evaluation">去应用商店评价我们^_^</string>
+    <string name="share_bubu_to_friend">推荐步步指南给朋友</string>
+    <string name="share_app_title">步步澳洲</string>
+	<string name="share_app_content">
+		步步澳洲-最全面最实用的澳洲旅行生活指南
+	</string>
+    <string name="user_lock">账号绑定</string>
+    <string name="phone_label">手机号</string>
+    <string name="website">www.bubu.so</string>
+    <string name="weibo_label">微博</string>
+    <string name="weibo">\@步步指南</string>
+    <string name="weixin_binding">微信</string>
+    <string name="weixin">\@步步指南</string>
+    <string name="map">地图</string>
+    <string name="support_share">推荐给好友</string>
+    <string name="clear_cache">清理缓存</string>
+    <string name="weixin_communion">迪士尼微信交流群</string>
+    <string name="weixin_communion_id">bubu-editor</string>
+    <string name="weixin_cooperation">商务合作微信</string>
+    <string name="weixin_cooperation_id">miakooo</string>
+
+    <string name="weixin_group_content">订单和客服微信</string>
+    <string name="weixin_group_id">2986365250</string>
+
+    <string name="qq_group">QQ交流群</string>
+    <string name="qq_group_auro">步步澳洲交流群</string>
+    <string name="qq_group_auro_num">473782719</string>
+    <string name="qq_group_city">步步指南交流群</string>
+    <string name="qq_group_city_num">136336928</string>
+    <string name="website_label">云端&amp;网站</string>
+    <string name="new_weibo_label">微博</string>
+    <string name="version">版本</string>
+
+
+    <!--第三方登录分享-->
+    <string name="feedback_success">谢谢您的反馈~</string>
+    <string name="feedback_error">反馈发送失败，请稍候重试</string>
+    <string name="error_sso_login">第三方登录失败，请稍候再试</string>
+    <string name="error_sso_banding">第三方绑定失败，请稍候再试</string>
+    <string name="error_weixin_not_found">找不到微信APP</string>
+    <string name="weixin_group_copy">微信号码已复制</string>
+    <string name="qq_group_copy">交流群号码已复制</string>
+    <string name="clear_cache_success">缓存已清空</string>
+    <string name="setting_phone_bind">已绑</string>
+    <string name="setting_phone_unbind">绑定</string>
+    <string name="text_china_phone">+86</string>
+    <string name="text_uber_product_id"></string>
+    <string name="input_phone">手机号</string>
+    <string name="input_code">短信验证码</string>
+    <string name="get_sms_code">获取验证码</string>
+    <string name="submit">提交</string>
+    <string name="binding_phone">绑定手机号</string>
+    <string name="error_network_connecting">网络无法连接...</string>
+    <string name="error_phone_num">电话号码不正确</string>
+    <string name="error_callback">反馈请多少写几个字哦</string>
+    <string name="edt_callback">请输入您的建议，我们将为您不断改进产品</string>
+    <string name="label_callback_contact">你的联系方式（选填）</string>
+    <string name="title_activity_start">步步指南</string>
+    <string name="subTitle_activity_start">最in的上海迪士尼乐园游玩攻略</string>
+    <string name="label_register_activity_login">步步账号登录</string>
+    <string name="button_register_activity_start">使用手机号码注册</string>
+    <string name="button_login_activity_start">登录</string>
+    <string name="button_sina_activity_start">微博登录</string>
+    <string name="button_wechat_activity_start">微信登录</string>
+    <string name="register_name">注册账号</string>
+    <string name="forget_account">忘记密码</string>
+    <string name="error_mail">邮箱格式不正确</string>
+    <string name="reset_mail_send">已发送一份重置密码邮件到您的邮箱</string>
+    <string name="error_login">登录失败，请检查用户名和验证码是否正确</string>
+    <string name="error_reset_mail_send">重置密码出错，请稍候再试</string>
+    <string name="forget">忘记密码？</string>
+    <string name="forget_tip">在下面输入您的电子邮件地址，我们将发送邮件给您重设密码</string>
+    <string name="mail">邮箱</string>
+    <string name="reset_password">重置密码</string>
+    <string name="title_activity_register">创建账户</string>
+    <string name="label_activity_register">创建一个免费账号即刻加入步步</string>
+    <string name="password">密码在哪里?</string>
+    <string name="create_account">创建账户</string>
+    <string name="mobilephone_num">请输入手机号码</string>
+    <string name="input_username">请输入账号</string>
+    <string name="error_sms_code">验证码不正确</string>
+    <string name="error_name_length">用户名不能为空</string>
+    <string name="error_password_length">密码长度在6到16之间</string>
+    <string name="error_register_name_exist">该用户名已经被占用</string>
+    <string name="error_register_mail_exist">该邮箱已经注册过</string>
+    <string name="error_register">注册失败，请稍候再试</string>
+    <string name="register_success">登录成功</string>
+    <string name="title_share_weixing">微信好友</string>
+    <string name="title_share_weixing_friend">朋友圈</string>
+    <string name="picker_cancel">取消</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_banding">绑定成功</string>
+    <string name="user_sex">性别</string>
+    <string name="user_birthday">生日</string>
+    <string name="user_location">所在地</string>
+    <string name="nickname">昵称</string>
+    <string name="mail_mine_info_title">电子邮箱</string>
+    <string name="change_password">更改密码</string>
+    <string name="logout">退出此账号</string>
+    <string name="title_personal_info">个人信息</string>
+    <string name="login">登录</string>
+    <string name="error_password_empty">密码不能为空</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="login_title">快速登录</string>
+    <string name="send_phone_num">验证码发送成功</string>
+    <string name="send_phone_num_failure">验证码发送失败</string>
+    <string name="title_activity_user_info">UserInfoActivity</string>
+    <string name="logout_success">注销成功</string>
+
+    <!--photopicker-->
+    <string name="picker_images">图片</string>
+    <string name="picker_delete">删除</string>
+    <string name="picker_done">完成</string>
+    <string name="picker_done_with_count">完成(%1$d/%2$d)</string>
+    <string name="picker_image_index">%1$d/%2$d</string>
+    <string name="picker_undo">撤消</string>
+    <string name="picker_deleted_a_photo">删除了一张图片</string>
+    <string name="picker_confirm_to_delete">确认删除？</string>
+    <string name="picker_yes">确定</string>
+    <string name="picker_all_image">所有图片</string>
+    <string name="picker_over_max_count_tips">你最多可以选择%1$d张图片</string>
+    <string name="picker_image_count">%1$d张</string>
+
+    <string name="error_upload_profile">头像上传失败,请重试</string>
+    <string name="crop_image_title">图片裁剪</string>
+    <string name="crop_image_btn">裁剪</string>
+    <string name="icon_uploading">正在上传…</string>
+
+    <string name="text_change_user_name_no_empty">亲，昵称不能为空哦~</string>
+    <string name="text_change_user_name">亲，请输入昵称~</string>
+
+    <string name="text_change_user_name_no_change">不改了</string>
+    <string name="text_change_user_name_no_banding">算了</string>
+    <string name="man">绅士</string>
+    <string name="woman">淑女</string>
+
+    <string name="unbindTaobao">解除绑定</string>
+    <string name="alreadybindTaoBao">淘宝帐号已绑定</string>
+    <string name="title_activity_browse_record">BrowseRecordActivity</string>
 </resources>

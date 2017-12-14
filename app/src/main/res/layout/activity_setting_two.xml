@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fbf7ed"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_activity_menu"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_fbf7ed">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_fbf7ed"
+                android:orientation="vertical">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/color_d8d8d8"/>
+
+
+                <LinearLayout
+                    android:id="@+id/icon_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
+                    android:background="@color/color_ffffff"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <wiget.CircleImageView
+                        android:id="@+id/img_icon"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/pho_user_head"
+                        app:border_color="@color/color_ffffff"
+                        app:border_widths="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="18dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="用户名"
+                        android:textColor="@color/color_000000"
+                        android:textSize="16sp"/>
+
+                    <View
+                        android:id="@+id/v_click_icon4"
+                        style="@style/iconClickMe"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="15dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_bind_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:background="@color/color_fbf7ed">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:text="@string/user_lock"
+                        android:textColor="@color/color_666666"
+                        android:textSize="12sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_phone"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:id="@+id/icon_phone"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/phone_label"/>
+
+                        <TextView
+                            android:id="@+id/tv_phone_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:text="@string/website"
+                            android:textColor="@color/color_999999"/>
+
+                        <TextView
+                            android:id="@+id/v_click_phone"
+                            android:layout_width="33dp"
+                            android:layout_height="22dp"
+                            android:background="@drawable/btn_setting_bind"
+                            android:gravity="center"
+                            android:text="已绑"
+                            android:textColor="@color/color_d2d2d2"
+                            android:textSize="12sp"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"
+                        android:visibility="gone"/>
+
+
+                    <LinearLayout
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:id="@+id/icon_weibo"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weibo_label"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weibo"
+                            android:textColor="@color/color_686868"/>
+
+                        <View
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"
+                        android:visibility="gone"/>
+
+
+                    <LinearLayout
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:id="@+id/icon_weixin"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weixin_binding"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weixin"
+                            android:textColor="@color/color_686868"/>
+
+                        <View
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/color_fbf7ed">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:text="@string/normal"-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp"/>-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_map"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:id="@+id/icon_map"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/map"/>
+
+                        <TextView
+                            android:id="@+id/tv_map"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/map"
+                            android:textColor="@color/color_d8d8d8"/>
+
+                        <View
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_share"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_share"
+                            style="@style/iconClickfont"
+                            />
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/support_share"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/website"
+                            android:textColor="@color/color_d8d8d8"
+                            android:visibility="gone"/>
+
+                        <View
+                            android:id="@+id/v_click_share"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/color_fbf7ed">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:text="@string/support"-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp"/>-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_support"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_support"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/support"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/website"
+                            android:textColor="@color/color_d8d8d8"
+                            android:visibility="gone"/>
+
+                        <View
+                            android:id="@+id/v_click_support"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <!--<View-->
+                        <!--style="@style/normal_line"-->
+                        <!--android:layout_marginLeft="12dp"/>-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_clear_cache"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_clear_cache"
+                            style="@style/iconClickfont"
+                            />
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/clear_cache"/>
+
+
+                        <View
+                            android:id="@+id/v_click_clear_cache"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/color_fbf7ed">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:text="@string/weixin_group"-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp"/>-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_weixin_communion"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_weixin_communion"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weixin_communion"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weixin_communion_id"
+                            android:textColor="@color/color_686868"
+                            />
+
+                        <View
+                            android:id="@+id/v_click_weixin_communion"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                    style="@style/normal_line"
+                    android:layout_marginLeft="12dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_weixin_cooperation"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_weixin_cooperation"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weixin_cooperation"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weixin_cooperation_id"
+                            android:textColor="@color/color_686868"
+                            />
+
+                        <View
+                            android:id="@+id/v_click_weixin_cooperation"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_weixin_group"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_weixin_group"
+                            style="@style/iconClickfont"
+                            />
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weixin_group_content"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weixin_group_id"
+                            android:textColor="@color/color_686868"
+                            />
+
+                        <View
+                            android:id="@+id/v_click_weixin_group"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:background="@color/color_f2f2f2"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:text="@string/qq_group"
+                        android:textColor="@color/color_666666"
+                        android:textSize="12sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/ll_qq_auro"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_qq_auro"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/qq_group_auro"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/qq_group_auro_num"
+                            android:textColor="@color/color_686868"
+                            />
+
+                        <View
+                            android:id="@+id/v_click_qq_auro"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_qq_city"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_qq_city"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/qq_group_city"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/qq_group_city_num"
+                            android:textColor="@color/color_686868"
+                            />
+
+                        <View
+                            android:id="@+id/v_click_qq_city"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/color_fbf7ed">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:text="@string/about"-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp"/>-->
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_website"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_website"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/website_label"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/website"
+                            android:textColor="@color/color_686868"/>
+
+                        <View
+                            android:id="@+id/v_click_icon1"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_weibo"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_sina_weibo"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/new_weibo_label"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weibo"
+                            android:textColor="@color/color_686868"/>
+
+                        <View
+                            android:id="@+id/v_click_icon2"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_weixin"
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_weixin_open"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/weixin_label"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/weixin"
+                            android:textColor="@color/color_686868"/>
+
+                        <View
+                            android:id="@+id/v_click_icon3"
+                            style="@style/iconClickMe"
+                            />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/normal_line"
+                        android:layout_marginLeft="12dp"/>
+
+
+                    <LinearLayout
+                        style="@style/linearLayoutMineInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/icon_version"
+                            style="@style/iconClickfont"
+                            />
+
+
+                        <TextView
+                            style="@style/labelMineInfo"
+                            android:text="@string/version"/>
+
+                        <TextView
+                            android:id="@+id/tv_version"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_686868"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

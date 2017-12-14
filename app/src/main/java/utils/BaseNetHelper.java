@@ -11,7 +11,7 @@ import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.NetWorkHelper;
 import so.bubu.lib.helper.ResourceHelper;
 import so.bubu.lib.helper.ToastHelper;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * 网络请求公用方法

@@ -1,11 +1,7 @@
 package app;
 
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.util.Log;
 import android.util.Pair;
 
 import com.alibaba.baichuan.android.trade.AlibcTradeSDK;
@@ -17,12 +13,15 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.LogUtil;
 import com.avos.avoscloud.PushService;
 import com.avos.avoscloud.SaveCallback;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import common.ApiTokenManager;
 import common.LeanCloudConfig;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.DeviceHelper;
-import so.bubu.Coupon.AliTrade.activity.MainActivity;
+
+import com.zhekouxingqiu.main.activity.MainActivity;
+
 import utils.SharedPreferencesHelp;
 import utils.dbUtils.DbManager;
 
@@ -39,7 +38,10 @@ public class CityGuideApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         initLeanCloud();
+        Log.e("zhengheng", "onCreate " + getPackageName());
         DbManager.getInstance().initialize();
+
+        CrashReport.initCrashReport(getApplicationContext(), "900033198", false);
 
         AlibcTradeSDK.asyncInit(this, new AlibcTradeInitCallback() {
             @Override
@@ -102,7 +104,6 @@ public class CityGuideApplication extends BaseApplication {
 
 
     }
-
 
 
 }

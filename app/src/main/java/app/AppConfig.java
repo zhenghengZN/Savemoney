@@ -20,6 +20,7 @@ public interface AppConfig {
     String SP_LOCATION = "LOCATION";
     String SP_PAGE_CACHE = "PAGE_CACHE";
     String FIRST_PAGE = "first_page";
+    String SECOND_MESSAGE_PAGE = "second_msg_page";
 
-
+    String REGISTER_FROM_KEY = "source";
 }

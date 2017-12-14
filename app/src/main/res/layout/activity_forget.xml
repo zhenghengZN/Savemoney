@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:baselineAligned="false"
+        >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:contentDescription="@null"
+            android:gravity="center_vertical"
+            android:padding="12dp"/>
+
+        <TextView
+            style="@style/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/forget" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/textViewSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/forget_tip" />
+
+    <so.bubu.lib.wiget.ClearEditText
+        android:id="@+id/edt_mail"
+        style="@style/editText"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/username_edit_text_background"
+        android:hint="@string/mail" />
+
+    <Button
+        android:id="@+id/btn_forget"
+        style="@style/buttonStart"
+        android:layout_height="44dp"
+        android:background="@drawable/radius_edittext_background"
+        android:textColor="@color/color_ffffff"
+        android:text="@string/reset_password" />
+
+</LinearLayout>

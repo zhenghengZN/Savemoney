@@ -15,7 +15,7 @@ import iconicfont.icon.*;
 import iconicfont.IconicFontUtil;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.Helper;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * @author linhuan on 2016/10/24 下午2:16

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_background"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/start_background"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:baselineAligned="false">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:padding="12dp"
+            android:contentDescription="@null"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            style="@style/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/title_activity_register"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        style="@style/textViewSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/label_activity_register"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="22dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/username_edit_text_background">
+
+            <View
+                android:id="@+id/v_icon_user"
+                style="@style/iconClickMe"
+                />
+            <so.bubu.lib.wiget.ClearEditText
+                android:id="@+id/edt_name"
+                style="@style/editText"
+                android:background="@null"
+                android:layout_marginLeft="6dp"
+                android:hint="@string/input_phone"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/username_edit_text_background">
+
+                <View
+                    android:id="@+id/v_icon_mail"
+                    style="@style/iconClickMe"
+                    />
+                <so.bubu.lib.wiget.ClearEditText
+                    android:id="@+id/edt_mail"
+                    style="@style/editText"
+                    android:layout_width="match_parent"
+                    android:background="@null"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input_code"/>
+
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_code"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="22dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_get_code_background"
+                android:gravity="center"
+                android:text="@string/get_sms_code"
+                android:textColor="@color/color_ffffff"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/password_edit_text_background">
+
+            <View
+                android:id="@+id/v_icon_pwd"
+                style="@style/iconClickMe"
+                />
+
+            <so.bubu.lib.wiget.ClearEditText
+                android:id="@+id/edt_password"
+                style="@style/editText"
+                android:layout_marginLeft="6dp"
+                android:background="@null"
+                android:hint="@string/password"
+                android:inputType="textPassword"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        style="@style/buttonStart"
+        android:layout_height="44dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/color_ffffff"
+        android:background="@drawable/green_radius_button_background"
+        android:text="@string/create_account"/>
+
+    <!--<android.support.design.widget.TabLayout-->
+    <!--android:id="@+id/register_tablayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:layout_marginRight="20dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--app:tabTextAppearance="@style/MyTabLayoutTextAppearanceInverse">-->
+
+    <!--</android.support.design.widget.TabLayout>-->
+
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/register_viewpager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1">-->
+
+    <!--</android.support.v4.view.ViewPager>-->
+
+
+</LinearLayout>

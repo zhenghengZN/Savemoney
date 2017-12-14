@@ -2,48 +2,25 @@ package utils.dbUtils;
 
 import android.database.Cursor;
 
-import com.alibaba.fastjson.JSON;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import app.CityGuideApplication;
-import app.CommonData;
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.Property;
 import de.greenrobot.dao.database.Database;
 import de.greenrobot.dao.query.QueryBuilder;
 import de.greenrobot.dao.query.WhereCondition;
 
-import greendao.bean.Activity;
-import greendao.bean.App;
-import greendao.bean.Article;
-import greendao.bean.Contact;
-import greendao.bean.Document;
-import greendao.bean.Food;
-import greendao.bean.Guide;
-import greendao.bean.GuideGroup;
-import greendao.bean.Place;
-import greendao.bean.Product;
-import greendao.bean.Restaurant;
-import greendao.dao.ActivityDao;
 import greendao.dao.AppDao;
 import greendao.dao.DaoMaster;
 import greendao.dao.DaoSession;
 import greendao.dao.DraftBoxDao;
 import greendao.dao.GuideDao;
-import greendao.dao.GuideGroupDao;
 import greendao.dao.HistoryDao;
-import greendao.dao.MenuSectionDao;
-import greendao.dao.PlaceDao;
 import greendao.dao.RestaurantDao;
 import so.bubu.lib.helper.Helper;
-import so.bubu.lib.helper.ResourceHelper;
 
 /**
  * 数据库管理类，采用单例模式

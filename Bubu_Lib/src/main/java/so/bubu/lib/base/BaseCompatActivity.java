@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -54,7 +53,6 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
         getAnimParams();
         initView();
         initData();
-        Log.e("SearchResultActivity", "onCreate ");
     }
 
     @Override
@@ -62,7 +60,6 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
         super.onDestroy();
 
         AppManager.getAppManager().finishActivity(this);
-        Log.e("SearchResultActivity", "onDestroy ");
     }
 
     @Override

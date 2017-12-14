@@ -3,6 +3,7 @@ package common;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.zhekouxingqiu.main.R;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.TimeHelper;
@@ -217,5 +219,48 @@ public class CommonMethod {
         return showData;
     }
 
+    public static void changeUserIcon(ImageView imageView, String isOfficial, int telentLevel) {
+        if (Helper.isNotNull(isOfficial)) {
+            if (isOfficial.equals("true")) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setBackgroundResource(R.drawable.icon_admin);
+            } else {
+                changeUserIcon(imageView, telentLevel);
+            }
+        } else {
+            changeUserIcon(imageView, telentLevel);
+        }
+    }
+
+    public static void changeUserIcon(ImageView imageView, int telentLevel) {
+        if (Helper.isNotNull(telentLevel)) {
+            if (0 < telentLevel) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setBackgroundResource(R.drawable.icon_master);
+            } else {
+                imageView.setVisibility(View.INVISIBLE);
+                imageView.setBackground(null);
+            }
+        } else {
+            imageView.setVisibility(View.INVISIBLE);
+            imageView.setBackground(null);
+        }
+    }
+
+    public static void changeUserIcon(ImageView imageView, boolean isOfficial, int telentLevel) {
+        if (isOfficial) {
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setBackgroundResource(R.drawable.icon_admin);
+        } else {
+            imageView.setVisibility(View.INVISIBLE);
+            if (0 < telentLevel) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setBackgroundResource(R.drawable.icon_master);
+            } else {
+                imageView.setVisibility(View.INVISIBLE);
+                imageView.setBackground(null);
+            }
+        }
+    }
 
 }

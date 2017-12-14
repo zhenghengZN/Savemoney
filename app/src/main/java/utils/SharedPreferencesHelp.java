@@ -1,13 +1,9 @@
 package utils;
 
-import android.content.Context;
-
 import java.util.Map;
 
 
 import app.AppConfig;
-import app.CityGuideApplication;
-import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.PreferencesHelper;
 
 /**
@@ -109,6 +105,9 @@ public class SharedPreferencesHelp {
         return PreferencesHelper.getInstance(AppConfig.SP_LOCATION).getString(key);
     }
 
+    public static int getSecondMessagePageItem(int defaultItem){
+        return PreferencesHelper.getInstance(AppConfig.SP_PAGE_CACHE).getInt(AppConfig.SECOND_MESSAGE_PAGE, defaultItem);
+    }
 
 //    public static void setCityCenterLatitude(String key, float latitude){
 //        PreferencesHelper.getInstance(AppConfig.SP_LOCATION).putFloat(key, latitude);

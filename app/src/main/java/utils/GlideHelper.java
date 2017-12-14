@@ -1,13 +1,16 @@
 package utils;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.net.Uri;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -16,7 +19,8 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import so.bubu.lib.helper.ResourceHelper;
-import so.bubu.Coupon.AliTrade.R;
+
+import com.zhekouxingqiu.main.R;
 
 /**
  * Created by wangwn on 2016/4/22.
@@ -36,6 +40,7 @@ public class GlideHelper {
 
     /**
      * 加载圆角图片
+     *
      * @param context
      * @param resId
      * @param targetWidth
@@ -43,7 +48,7 @@ public class GlideHelper {
      * @param radis
      * @param targetView
      */
-    public static void displayRoundedCornersImage(Context context, int resId, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImage(Context context, int resId, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Picasso
                 .with(context)
@@ -58,7 +63,7 @@ public class GlideHelper {
     }
 
 
-    public static void displayRoundedCornersImageNoError(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImageNoError(Context context, int url, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Glide
                 .with(context)
@@ -70,7 +75,21 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImage(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImageTaobao(Context context, int targetWidth, int targetHeight, int radis, ImageView targetView) {
+
+        Glide
+                .with(context)
+                .load(R.drawable.bindtaobao)
+//                .placeholder(R.drawable.bindtaobao)
+                .override(targetWidth, targetHeight)
+                .centerCrop()
+                .bitmapTransform(new RoundedCornersTransformation(context, radis, 0))
+                .into(targetView);
+
+
+    }
+
+    public static void displayRoundedCornersImage(Context context, String url, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Picasso
                 .with(context)
@@ -84,7 +103,7 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImageWithoutPlace(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImageWithoutPlace(Context context, String url, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Picasso
                 .with(context)
@@ -97,7 +116,19 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImage702(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayImageWithoutPlace(Context context, String url, int targetWidth, int targetHeight, ImageView targetView) {
+
+        Picasso
+                .with(context)
+                .load(url)
+                .resize(targetWidth, targetHeight)
+                .centerCrop()
+                .placeholder(R.drawable.loading)
+                .into(targetView);
+
+    }
+
+    public static void displayRoundedCornersImage702(Context context, String url, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Picasso
                 .with(context)
@@ -111,7 +142,7 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImage702(Context context, String url, int targetWidth, int targetHeight,int radis,ImageView targetView, so.bubu.lib.base.transformation.RoundedCornersTransformation.CornerType cornerType) {
+    public static void displayRoundedCornersImage702(Context context, String url, int targetWidth, int targetHeight, int radis, ImageView targetView, so.bubu.lib.base.transformation.RoundedCornersTransformation.CornerType cornerType) {
 
         Picasso
                 .with(context)
@@ -125,7 +156,7 @@ public class GlideHelper {
 
     }
 
-    public static void displayRoundedCornersImage(Context context, File url, int targetWidth, int targetHeight,int radis,ImageView targetView) {
+    public static void displayRoundedCornersImage(Context context, File url, int targetWidth, int targetHeight, int radis, ImageView targetView) {
 
         Picasso
                 .with(context)
@@ -337,12 +368,14 @@ public class GlideHelper {
         Glide
                 .with(context)
                 .load(url)
+//                .crossFade()
                 .asBitmap()
                 .placeholder(R.drawable.imagebackground)
                 .error(R.drawable.imagebackground)
                 .override(targetWidth, targetHeight)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .centerCrop()
+//                .animate(animationObject)
                 .into(targetView);
     }
 
@@ -507,11 +540,12 @@ public class GlideHelper {
 
     /**
      * 高斯模糊
+     *
      * @param context
      * @param resId
      * @param targetView
      */
-    public static void loadImageWithBlur(Context context,int resId,ImageView targetView){
+    public static void loadImageWithBlur(Context context, int resId, ImageView targetView) {
         Glide
                 .with(context)
                 .load(resId)
@@ -521,11 +555,12 @@ public class GlideHelper {
 
     /**
      * 高斯模糊
+     *
      * @param context
      * @param url
      * @param targetView
      */
-    public static void loadImageWithBlur(Context context,String url,ImageView targetView){
+    public static void loadImageWithBlur(Context context, String url, ImageView targetView) {
         Glide
                 .with(context)
                 .load(url)
@@ -533,6 +568,18 @@ public class GlideHelper {
                 .into(targetView);
     }
 
+    static ViewPropertyAnimation.Animator animationObject = new ViewPropertyAnimation.Animator() {
+        @Override
+        public void animate(View view) {
+            // if it's a custom view class, cast it here
+            // then find subviews and do the animations
+            // here, we just use the entire view for the fade animation
+            view.setAlpha(0f);
 
+            ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
+            fadeAnim.setDuration(1500);
+            fadeAnim.start();
+        }
+    };
 
 }

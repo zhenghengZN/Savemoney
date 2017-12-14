@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="45"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/start_logo"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:contentDescription="@null"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/title_activity_start"
+            android:textColor="@color/color_82cd6b"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/subTitle_activity_start"
+            android:textColor="@color/color_000000"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/login_line"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="22dp"
+                android:layout_weight="4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/label_register_activity_login"
+                android:textColor="@color/color_000000"
+                android:textSize="14sp"/>
+
+            <View
+                style="@style/login_line"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="4"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_phone_register"
+            style="@style/buttonStart"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/green_radius_button_background"
+            android:text="@string/button_register_activity_start"
+            android:textColor="@color/color_ffffff"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/buttonStart"
+            android:background="@drawable/orange_radius_button_background"
+            android:text="@string/button_login_activity_start"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+
+            >
+
+            <TextView
+                android:id="@+id/btn_account_register"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/register_name"
+                android:textColor="@color/color_82cd6b"
+                android:textSize="14sp"/>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/color_82cd6b">
+
+            </View>
+
+
+            <TextView
+                android:id="@+id/btn_forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/forget_account"
+                android:textColor="@color/color_82cd6b"
+                android:textSize="14sp"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_three_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:background="@color/color_f9f9f9"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp">
+
+        <LinearLayout
+            android:id="@+id/sina_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/icon_sina"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:srcCompat="@drawable/vector_drawable_icon_sina"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon_sina"
+                android:gravity="center_horizontal"
+                android:text="@string/button_sina_activity_start"
+                android:textColor="@color/color_d26039"
+                android:textSize="14sp"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/weixin_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/icon_weixin"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:srcCompat="@drawable/vector_drawable_icon_weixin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon_weixin"
+                android:gravity="center_horizontal"
+                android:text="@string/button_wechat_activity_start"
+                android:textColor="@color/color_82cd6b"
+                android:textSize="14sp"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

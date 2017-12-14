@@ -2,16 +2,8 @@ package utils.dbUtils;
 
 import android.content.Context;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import app.CityGuideApplication;
-import app.CommonData;
 import de.greenrobot.dao.database.Database;
-import greendao.bean.Guide;
-import greendao.bean.GuideGroup;
 import greendao.dao.AirlineDao;
 import greendao.dao.AppDao;
 import greendao.dao.ArticleDao;
@@ -20,7 +12,6 @@ import greendao.dao.DaoMaster;
 import greendao.dao.DaoSession;
 import greendao.dao.DocumentDao;
 import greendao.dao.GuideDao;
-import greendao.dao.GuideGroupDao;
 import greendao.dao.RouteDao;
 import greendao.dao.VisaDao;
 import so.bubu.lib.helper.Helper;

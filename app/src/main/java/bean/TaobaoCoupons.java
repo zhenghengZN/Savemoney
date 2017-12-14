@@ -1,5 +1,6 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -40,7 +41,23 @@ public class TaobaoCoupons {
         this.widgets = widgets;
     }
 
-    public static class ObjectsBean {
+    public static class ObjectsBean implements Serializable {
+        public ObjectsBean(String category, int couponAmount, String biz30Day, String title, String platform, String couponShareUrl, double finalPrice, double discountPrice , String picUrl) {
+            this.category = category;
+            this.couponAmount = couponAmount;
+            this.biz30Day = biz30Day;
+            this.title = title;
+            this.platform = platform;
+            this.couponShareUrl = couponShareUrl;
+            this.finalPrice = finalPrice;
+            this.discountPrice = discountPrice;
+            this.picUrl = picUrl;
+        }
+
+        public ObjectsBean(){
+
+        }
+
         /**
          * category : 女装/女士精品
          * commision : 2.7

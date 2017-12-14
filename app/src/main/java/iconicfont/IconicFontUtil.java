@@ -7,7 +7,7 @@ import android.view.View;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.Helper;
 import iconicfont.icon.Icon;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * Created by wangwn on 2016/5/16.

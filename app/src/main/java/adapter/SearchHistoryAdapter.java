@@ -20,7 +20,7 @@ import iconicfont.icon.CityGuideIcon;
 import so.bubu.lib.base.adapter.BasicsAdapter;
 import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.ResourceHelper;
-import so.bubu.Coupon.AliTrade.R;
+import com.zhekouxingqiu.main.R;
 
 /**
  * @author linhuan on 16/4/29 下午4:51

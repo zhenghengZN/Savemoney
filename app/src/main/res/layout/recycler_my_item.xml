@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="66dp"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <RelativeLayout
+            android:id="@+id/icon_bg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="24dp">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/icon_bg"
+            android:text="@string/my_collection"
+            android:textColor="@color/color_000000"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tv_draft_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/tv_name"
+            android:background="@drawable/my_box_num_bg"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/text_new"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/v_click"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="12dp" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/vw_line"
+        style="@style/normal_line"
+        android:layout_marginLeft="66dp" />
+
+
+</LinearLayout>

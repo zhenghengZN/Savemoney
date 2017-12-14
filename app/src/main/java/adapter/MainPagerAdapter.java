@@ -9,10 +9,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.HashMap;
 
 import app.CommonData;
+import com.zhekouxingqiu.main.fragment.MineFragment;
 import so.bubu.lib.helper.Helper;
-import so.bubu.Coupon.AliTrade.activity.MainActivity;
-import so.bubu.Coupon.AliTrade.fragment.SettingIndependentFragment;
-import so.bubu.Coupon.AliTrade.fragment.TaobaoFragment;
+import com.zhekouxingqiu.main.activity.MainActivity;
+import com.zhekouxingqiu.main.fragment.SettingIndependentFragment;
+import com.zhekouxingqiu.main.fragment.TaobaoFragment;
 
 /**
  * 类型切换
@@ -21,10 +22,11 @@ import so.bubu.Coupon.AliTrade.fragment.TaobaoFragment;
  */
 public class MainPagerAdapter extends FragmentPagerAdapter {
 
-    private static final int PAGE_NUM = 2;
-
+    private static final int PAGE_NUM = 3;
 
     private TaobaoFragment taobaoFragment;
+//    private MyFragment myFragment;
+    private MineFragment mineFragment;
     private SettingIndependentFragment settingindependentfragment;
     //    private NewMyFragment userFragment;
     private HashMap<String, Object> parammap;
@@ -65,6 +67,16 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
                     taobaoFragment.setArguments(bd);
                 }
                 fragment = taobaoFragment;
+
+                break;
+
+            case MainActivity.USER:
+
+                if(Helper.isNull(mineFragment)) {
+//                    myFragment = new MyFragment();
+                    mineFragment =  new MineFragment();
+                }
+                fragment = mineFragment;
 
                 break;
         }

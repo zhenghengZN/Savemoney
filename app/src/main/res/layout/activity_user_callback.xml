@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_title"
+        layout="@layout/common_activity_menu" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_d8d8d8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingTop="30dp">
+
+        <EditText
+            android:id="@+id/edt_callback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_callback"
+            android:gravity="start"
+            android:hint="@string/edt_callback"
+            android:lines="5"
+            android:padding="10dp"
+            android:textColorHint="@color/color_d8d8d8"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_callback"
+            android:layout_marginTop="38dp"
+            android:text="@string/label_callback_contact"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_mail"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_callback"
+            android:lines="1"
+            android:padding="10dp"
+            android:textColor="@color/color_000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/green_radius_button_background"
+            android:text="@string/submit"
+            android:textColor="@color/color_ffffff"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
