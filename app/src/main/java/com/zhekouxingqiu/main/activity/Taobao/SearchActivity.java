@@ -26,8 +26,10 @@ import greendao.bean.History;
 import greendao.dao.HistoryDao;
 import iconicfont.IconicFontUtil;
 import iconicfont.icon.CityGuideIcon;
+
 import com.zhekouxingqiu.main.R;
 import com.zhekouxingqiu.main.activity.SearchResultActivity;
+
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.DelayTaskHelper;
 import so.bubu.lib.helper.DeviceHelper;
@@ -230,12 +232,17 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
                 parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
                 bundle.putSerializable(CommonData.PARAMMAP, parammap);
 
-
-                Intent intent = new Intent("NEW_RESULT");
-                intent.putExtra(CommonData.PARAMMAP, parammap);
-                sendBroadcast(intent);
-
-                NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+//                Intent intent = new Intent("NEW_RESULT");
+//                intent.putExtra(CommonData.PARAMMAP, parammap);
+//                sendBroadcast(intent);
+//                NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+                if (SearchResultActivity.getInstance() != null && !SearchResultActivity.getInstance().isFinishing()) {
+                    Intent intent = new Intent();
+                    intent.putExtra(CommonData.PARAMMAP, parammap);
+                    SearchResultActivity.getInstance().changeContent(intent);
+                } else {
+                    NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+                }
                 finish();
                 return true;
             }
@@ -252,11 +259,16 @@ public class SearchActivity<T> extends TitleAppCompatActivity {
             parammap.put(CommonData.KEYWORD, etSearch.getText().toString());
             bundle.putSerializable(CommonData.PARAMMAP, parammap);
 
-            Intent intent = new Intent("NEW_RESULT");
-            intent.putExtra(CommonData.PARAMMAP, parammap);
-            sendBroadcast(intent);
-
-            NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+//            Intent intent = new Intent("NEW_RESULT");
+//            intent.putExtra(CommonData.PARAMMAP, parammap);
+//            sendBroadcast(intent);
+            if (SearchResultActivity.getInstance() != null && !SearchResultActivity.getInstance().isFinishing()) {
+                Intent intent = new Intent();
+                intent.putExtra(CommonData.PARAMMAP, parammap);
+                SearchResultActivity.getInstance().changeContent(intent);
+            } else {
+                NavigationHelper.slideActivity(SearchActivity.this, SearchResultActivity.class, bundle, false);
+            }
             finish();
         }
     };

@@ -115,4 +115,9 @@
 
     <color name="color_d03f3f">#D03F3F</color>
     <color name="color_a89e84">#a89e84</color>
+
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="tip">#9c9c9c</color>
+    <color name="bg_focus">#DDDDDD</color>
+    <color name="red_500">#ef4836</color>
 </resources>

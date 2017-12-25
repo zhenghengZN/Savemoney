@@ -20,6 +20,8 @@
             app:srlEnableAutoLoadmore="false"
             app:srlEnableLoadmoreWhenContentNotFull="true"
             app:srlEnablePreviewInEditMode="false"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
             app:srlFixedHeaderViewId="@+id/HeaderView">
 
             <com.scwang.smartrefresh.layout.header.ClassicsHeader
@@ -29,7 +31,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rcv_information"
@@ -41,11 +44,12 @@
                     android:scrollbarStyle="outsideOverlay"
                     android:scrollbars="vertical" />
 
-                <FrameLayout
+                <LinearLayout
                     android:id="@+id/HeaderView"
                     android:layout_width="match_parent"
                     android:visibility="gone"
-                    android:layout_height="40dp">
+                    android:orientation="vertical"
+                    android:layout_height="40.5dp">
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler_title"
@@ -54,7 +58,9 @@
                         android:background="@android:color/white"
                         android:scrollbars="none"
                         android:visibility="gone" />
-                </FrameLayout>
+                    <View style="@style/normal_line" />
+
+                </LinearLayout>
             </FrameLayout>
 
             <com.scwang.smartrefresh.layout.footer.ClassicsFooter

@@ -6,6 +6,11 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
+
 import app.CityGuideApplication;
 
 
@@ -64,5 +69,23 @@ public class AppInfoUtil {
                 ((i >> 8 ) & 0xFF) + "." +
                 ((i >> 16 ) & 0xFF) + "." +
                 ( i >> 24 & 0xFF) ;
+    }
+
+
+    public static String getPhoneIp() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        //if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet6Address) {
+                        return inetAddress.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return "";
     }
 }

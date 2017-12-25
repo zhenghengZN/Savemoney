@@ -218,4 +218,13 @@
     <string name="unbindTaobao">解除绑定</string>
     <string name="alreadybindTaoBao">淘宝帐号已绑定</string>
     <string name="title_activity_browse_record">BrowseRecordActivity</string>
+    <string name="all_category_text">全部分类</string>
+
+
+
+    <string name="tip_drag">长按编辑,拖拽排序</string>
+    <string name="my_cahnnel">我的频道</string>
+    <string name="other_channel">其他频道</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
 </resources>

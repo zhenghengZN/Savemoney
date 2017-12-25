@@ -98,7 +98,6 @@ public class MineFragment extends TitleFragment {
                 viewHolder.setText(R.id.tv_name, CellList.get(position).getTitle());
 
                 ImageView img_icon = viewHolder.getView(R.id.img_icon);
-                // TODO 设置图片
                 switch (position) {
                     case 0:
                         GlideHelper.displayRoundedCornersImageTaobao(getActivity(), DensityUtil.dp2px(20), DensityUtil.dp2px(20), DensityUtil.dp2px(4), img_icon);
@@ -128,6 +127,7 @@ public class MineFragment extends TitleFragment {
                         IconicFontDrawable icon3 = new IconicFontDrawable(context, CityGuideIcon.ICON_RECORD);
                         icon3.setIconColor(context.getResources().getColor(R.color.colorPrimary));
                         img_icon.setBackground(icon3);
+
                         break;
                     case 4:
                         IconicFontDrawable icon4 = new IconicFontDrawable(context, CityGuideIcon.ICON_SETTTING);

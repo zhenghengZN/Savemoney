@@ -59,6 +59,7 @@ public class HorizontaltitleAdapter extends RecyclerView.Adapter<Horizontaltitle
             holder.title_image_layout.setVisibility(View.VISIBLE);
             changeImage(holder.itemView);
         } else {
+//            isPriceZA = null;
             holder.title_image_layout.setVisibility(View.GONE);
         }
         TitleBean title = mTitles.get(position);
@@ -153,15 +154,12 @@ public class HorizontaltitleAdapter extends RecyclerView.Adapter<Horizontaltitle
         private TextView title;
         private LinearLayout title_image_layout;
         private RelativeLayout title_layout;
-//        private ImageView priceAZ, priceZA;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
             title_layout = (RelativeLayout) itemView.findViewById(R.id.title_layout);
             title_image_layout = (LinearLayout) itemView.findViewById(R.id.title_image_layout);
-//            priceAZ = (ImageView) itemView.findViewById(R.id.priceAZ);
-//            priceZA = (ImageView) itemView.findViewById(R.id.priceZA);
         }
     }
 }

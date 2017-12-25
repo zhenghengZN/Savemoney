@@ -105,6 +105,7 @@ public class UIHelper {
 //                db.putString("url", url);
                 LogUtil.log.e("openUrl", "" + url);
                 db.putSerializable(CommonData.PARAMMAP, parammap);
+
                 NavigationHelper.slideActivity((Activity) context, SearchResultActivity.class, db, false);
 
             }
@@ -142,6 +143,8 @@ public class UIHelper {
             if ("ClearCache".equalsIgnoreCase(action)) {
                 DataCleanManager.cleanInternalCache(context);
                 DataCleanManager.cleanExternalCache(context);
+                GlideCatchUtil.getInstance().clearCacheDiskSelf();
+                GlideCatchUtil.getInstance().clearCacheMemory();
                 ToastHelper.showToast(ResourceHelper.getString(R.string.clear_cache_success));
             }
 

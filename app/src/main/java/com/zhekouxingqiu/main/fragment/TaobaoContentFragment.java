@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,11 +34,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import adapter.BaseCallFunctionBackListener;
 import adapter.HorizontaltitleAdapter;
 import adapter.TaobaoContentAdapter;
 import adapter.TypeAdapter;
+import app.CityGuideApplication;
 import app.CommonData;
 import bean.TaobaoCoupons;
 import bean.TitleBean;
@@ -49,8 +53,10 @@ import com.zhekouxingqiu.main.R;
 import so.bubu.lib.base.BaseApplication;
 import so.bubu.lib.helper.Helper;
 import so.bubu.lib.helper.ResourceHelper;
+import utils.CallFunctionBackListener;
 import utils.CommonUtils;
 import utils.GlideHelper;
+import utils.GlideImageLoader;
 import utils.InformationHelper;
 import utils.UIHelper;
 import utils.dbUtils.DBHelper;
@@ -112,14 +118,17 @@ public class TaobaoContentFragment extends TitleFragment {
         refreshLayout.setOnRefreshLoadmoreListener(refreshListener);
 //        refreshLayout.setDragRate(0.1f);
         rcvinformation = (RecyclerView) findViewById(R.id.rcv_information);
-
-//        manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        if (CityGuideApplication.LAYOUT_CHANGE) {
+            manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        } else {
+            manager = new GridLayoutManager(getActivity(), 2);
+            ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(2, contentDecoration, false);
+            rcvinformation.addItemDecoration(itemDecoration);
+        }
 //        rcvinformation.setLayoutManager(manager);
-        manager = new GridLayoutManager(getActivity(), 2);
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(2, contentDecoration, false);
-        rcvinformation.addItemDecoration(itemDecoration);
+//        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(2, contentDecoration, false);
+//        rcvinformation.addItemDecoration(itemDecoration);
         rcvinformation.setLayoutManager(manager);
-        cancleRequest(rcvinformation);
 
         taobaoContentAdapter = new TaobaoContentAdapter(act, taobaoContentBeans);
 
@@ -135,6 +144,19 @@ public class TaobaoContentFragment extends TitleFragment {
                     String couponShareUrl = taobaoContentBeans.get(position).getCouponShareUrl();
                     UIHelper.getInstance().openUrl(act, couponShareUrl);
                     DBHelper.getInstance(act).insertDate(taobaoContentBeans.get(position));
+                    TaobaoCoupons.ObjectsBean bean = taobaoContentBeans.get(position);
+                    Log.e("onclickgrid",""+bean.getId());
+                    InformationHelper.getInstance().addBrowseRecord("Coupon", bean.getId(), bean.getCouponShareUrl(), new CallFunctionBackListener() {
+                        @Override
+                        public void callSuccess(boolean result, String jsonstr) {
+                            Log.e("记录添加成功", "记录添加成功");
+                        }
+
+                        @Override
+                        public void callFailure(int type, AVException e) {
+                            Log.e("记录添加失败", "记录添加失败");
+                        }
+                    });
                 }
             }
         });
@@ -149,12 +171,12 @@ public class TaobaoContentFragment extends TitleFragment {
         objects.add(new TitleBean("价格", false));
         Adapter = new HorizontaltitleAdapter(act, objects);
         content_Adapter = new HorizontaltitleAdapter(act, objects);
-//        refreshLayout.setScrollBoundaryDecider(new ScrollBoundaryDeciderAdapter() {
-//            @Override
-//            public boolean canRefresh(View content) {
-//                return !ScrollBoundaryUtil.canScrollUp(rcvinformation);
-//            }
-//        });//设置滚动边界判断
+        refreshLayout.setScrollBoundaryDecider(new ScrollBoundaryDeciderAdapter() {
+            @Override
+            public boolean canRefresh(View content) {
+                return !ScrollBoundaryUtil.canScrollUp(rcvinformation);
+            }
+        });//设置滚动边界判断
 
 
         //获得屏幕的大小
@@ -162,11 +184,12 @@ public class TaobaoContentFragment extends TitleFragment {
         width = dm.widthPixels;
     }
 
-
+    private Lock lock = new ReentrantLock();
     @Override
     protected void initData() {
         super.initData();
         getCategory();
+
         hasNetData();
     }
 
@@ -177,50 +200,55 @@ public class TaobaoContentFragment extends TitleFragment {
     private Runnable runnable;
 
     private void hasNetData() {
+
         InformationHelper.getInstance().getTaobaoCoupons(skip, POI_COUNT, Params, new BaseCallFunctionBackListener() {
-            @Override  //"category" -> "测试精选集"
-            public void callSuccess(boolean result, String jsonstr) {
-                have_data.setVisibility(View.VISIBLE);
-                if (result) {
-                    if (hasAgainData) {
-                        hasAgainData = false;
-                        taobaoContentBeans.clear();
+                @Override  //"category" -> "测试精选集"
+                public void callSuccess(boolean result, String jsonstr) {
+                    have_data.setVisibility(View.VISIBLE);
+                    if (result) {
+                        if (hasAgainData) {
+                            hasAgainData = false;
+                            taobaoContentBeans.clear();
+                        }
+                        LogUtil.log.e("Params", Params.toString());
+                        TaobaoCoupons taobaoCoupons = JSON.parseObject(jsonstr, TaobaoCoupons.class);
+                        LogUtil.log.e("getTaobaoCoupons", ":" + jsonstr);
+                        hasMore = taobaoCoupons.isHasMore();
+                        refreshLayout.setEnableLoadmore(hasMore);
+                        synchronized (this) {
+                            taobaoContentBeans.addAll(taobaoCoupons.getObjects());
+                        }
+                        diffWiget(taobaoCoupons);
+
+                        taobaoContentAdapter.notifyDataSetChanged();
+                    } else {
+                        refreshLayout.setEnableLoadmore(false);
                     }
-                    LogUtil.log.e("Params", Params.toString());
-                    TaobaoCoupons taobaoCoupons = JSON.parseObject(jsonstr, TaobaoCoupons.class);
-                    LogUtil.log.e("getTaobaoCoupons", ":" + jsonstr);
-                    hasMore = taobaoCoupons.isHasMore();
-                    refreshLayout.setEnableLoadmore(hasMore);
+                    no_data.setVisibility(View.GONE);
+                    refreshLayout.finishLoadmore();
+                    refreshLayout.finishRefresh();
+                    //skip为起始位置,taobaoContentBeans记录了当前一共的个数;
+                    skip = taobaoContentBeans.size() + skip_reset;
 
-                    taobaoContentBeans.addAll(taobaoCoupons.getObjects());
-                    diffWiget(taobaoCoupons);
-
-                    taobaoContentAdapter.notifyDataSetChanged();
-                } else {
-                    refreshLayout.setEnableLoadmore(false);
                 }
-                no_data.setVisibility(View.GONE);
-                refreshLayout.finishLoadmore();
-                refreshLayout.finishRefresh();
-                //skip为起始位置,taobaoContentBeans记录了当前一共的个数;
-                skip = taobaoContentBeans.size() + skip_reset;
-            }
 
-            @Override
-            public void callFailure(int type, AVException e) {
-                mHandler.removeCallbacks(runnable);
-                runnable = new Runnable() {
 
-                    @Override
-                    public void run() {
-                        hasNetData();
-                    }
+                @Override
+                public void callFailure(int type, AVException e) {
+                    mHandler.removeCallbacks(runnable);
+                    runnable = new Runnable() {
 
-                };
-                mHandler.post(runnable);
+                        @Override
+                        public void run() {
+                            hasNetData();
+                        }
 
-            }
-        });
+                    };
+                    mHandler.post(runnable);
+
+                }
+            });
+
     }
 
     private LinearLayout gridview;
@@ -246,25 +274,36 @@ public class TaobaoContentFragment extends TitleFragment {
                 setCompositeBanner(widgetsBean);
             }
         }
-        if (!Params.get(CommonData.CATEGORY).equals("今日推荐")) {
+//        if (!Params.get(CommonData.CATEGORY).equals("今日推荐")) {
+//            setRecyclertitle();
+//        }
+
+        if(!("今日推荐".equals(Params.get(CommonData.CATEGORY)))){
             setRecyclertitle();
         }
 
         taobaoContentAdapter.setHeaderView(gridview);
         //  TODO
-        //当布局是网格布局是用于headview独占一行,内容为2列
-        final GridLayoutManager gm = (GridLayoutManager) manager;
-        gm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return taobaoContentAdapter.getHeaderView() != null && position == 0 ? gm.getSpanCount() : 1;
-            }
-        });
+        if (!CityGuideApplication.LAYOUT_CHANGE) {
+
+            //当布局是网格布局是用于headview独占一行,内容为2列
+            final GridLayoutManager gm = (GridLayoutManager) manager;
+            gm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    return taobaoContentAdapter.getHeaderView() != null && position == 0 ? gm.getSpanCount() : 1;
+                }
+            });
+        }
 
     }
 
     public void setWigetLine() {
         View wigetline = ResourceHelper.loadLayout(act, R.layout.wigetline);
+        gridview.addView(wigetline, gridview.getChildCount());
+    }
+    public void setWigetLine1dp() {
+        View wigetline = ResourceHelper.loadLayout(act, R.layout.wigetline2);
         gridview.addView(wigetline, gridview.getChildCount());
     }
 
@@ -315,6 +354,9 @@ public class TaobaoContentFragment extends TitleFragment {
                 @Override
                 public void onClick(View v) {
                     LogUtil.log.e("setCompositeBanner", "setCompositeBanner" + url);
+                    if (!CommonUtils.isSingleClick()) {
+                        return;
+                    }
                     UIHelper.getInstance().openUrl(act, url);
                 }
             });
@@ -322,11 +364,13 @@ public class TaobaoContentFragment extends TitleFragment {
             CompositeBannerLayout.addView(imageview);
         }
         gridview.addView(CompositeBannerLayout, gridview.getChildCount());
-//        setWigetLine();
+        if (CityGuideApplication.LAYOUT_CHANGE) {
+            setWigetLine();
+        }
     }
 
     private double scale, width, height;
-//    private FrameLayout flActivity;
+    //    private FrameLayout flActivity;
 //    private View banner_layout;
     private LinkedList<TaobaoCoupons.WidgetsBean.ObjectsBean> bannerlist = new LinkedList<>();
 
@@ -349,18 +393,22 @@ public class TaobaoContentFragment extends TitleFragment {
         layoutParams.height = (int) height;
         banner.setLayoutParams(layoutParams);
 
-        banner.setImageLoader(new ImageLoader() {
-            @Override
-            public void displayImage(Context context, Object path, ImageView imageView) {
-                if (Helper.isNotEmpty(path)) {
-                    GlideHelper.displayImageByResizeasBitmap(context, CommonMethod.getThumbUrl(path.toString(), (int) width, (int) height), (int) width, (int) height, imageView);
-                }
-            }
-        });
+//        banner.setImageLoader(new ImageLoader() {
+//            @Override
+//            public void displayImage(Context context, Object path, ImageView imageView) {
+//                if (Helper.isNotEmpty(path)) {
+//                    GlideHelper.displayImageByResizeasBitmap(context, CommonMethod.getThumbUrl(path.toString(), (int) width, (int) height), (int) width, (int) height, imageView);
+//                }
+//            }
+//        });
+        banner.setImageLoader(GlideImageLoader.getInstance((int) width, (int) height));
         banner.setImages(pathList);
         banner.setOnBannerClickListener(new OnBannerClickListener() {
             @Override
             public void OnBannerClick(int position) {
+                if (!CommonUtils.isSingleClick()) {
+                    return;
+                }
                 if (Helper.isNotEmpty(bannerlist) && (position - 1) < bannerlist.size()) {
                     UIHelper.getInstance().openUrl(act, bannerlist.get((position - 1)).getUrl());
                 }
@@ -409,6 +457,19 @@ public class TaobaoContentFragment extends TitleFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UIHelper.getInstance().openUrl(act, widgetsBean.getObjects().get(position).getUrl());
+                Log.e("onclickgrid",""+widgetsBean.getObjects().get(position).getAid());
+                InformationHelper.getInstance().addBrowseRecord("CouponCategory", null, widgetsBean.getObjects().get(position).getUrl(), new CallFunctionBackListener() {
+                    @Override
+                    public void callSuccess(boolean result, String jsonstr) {
+                        Log.e("记录添加成功", "记录添加成功");
+                    }
+
+                    @Override
+                    public void callFailure(int type, AVException e) {
+                        Log.e("记录添加失败", "记录添加失败");
+                    }
+                });
+
             }
         });
         noScrollGridview.setNumColumns(widgetsBean.getColumnPerRow());
@@ -436,14 +497,12 @@ public class TaobaoContentFragment extends TitleFragment {
 //        Adapter = new HorizontaltitleAdapter(act, objects);
         recycler_title.setAdapter(Adapter);
         content_recycler_title.setAdapter(content_Adapter);
-        cancleRequest(recycler_title);
-        cancleRequest(content_recycler_title);
         //布局中的控件的adpter
         Adapter.setOnItemClickListener(new HorizontaltitleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
 
-                if (Adapter.getSelectedPosition() == position && Adapter.getSelectedPosition() != 3) {
+                if (Adapter.getSelectedPosition() == position && Adapter.getSelectedPosition() != 3 && hasAgainData) {
                     return;
                 }
 
@@ -456,15 +515,15 @@ public class TaobaoContentFragment extends TitleFragment {
 
                     case 0:
                         Params.putAll(Params_reset);
-
+                        content_Adapter.setPriceZA(null);
                         break;
                     case 1:
                         Params.put("sortBy", "createdAt");
-
+                        content_Adapter.setPriceZA(null);
                         break;
                     case 2:
                         Params.put("sortBy", "biz30Day");
-
+                        content_Adapter.setPriceZA(null);
                         break;
                     case 3:
                         Adapter.setPriceZA(isPriceZA);
@@ -472,6 +531,7 @@ public class TaobaoContentFragment extends TitleFragment {
                         changeImage(view);
                         break;
                 }
+
                 hasNetData();
                 Adapter.notifyDataSetChanged();
                 content_Adapter.setSelectedPosition(position);
@@ -487,26 +547,27 @@ public class TaobaoContentFragment extends TitleFragment {
             @Override
             public void onItemClick(View view, int position) {
 
-                if (content_Adapter.getSelectedPosition() == position && Adapter.getSelectedPosition() != 3) {
+                if (content_Adapter.getSelectedPosition() == position && Adapter.getSelectedPosition() != 3 && hasAgainData) {
                     return;
                 }
                 Params.clear();
                 Params.putAll(Params_reset);
                 hasAgainData = true;
+
                 skip = skip_reset;
                 switch (position) {
 
                     case 0:
                         Params.putAll(Params_reset);
-
+                        Adapter.setPriceZA(null);
                         break;
                     case 1:
                         Params.put("sortBy", "createdAt");
-
+                        Adapter.setPriceZA(null);
                         break;
                     case 2:
                         Params.put("sortBy", "biz30Day");
-
+                        Adapter.setPriceZA(null);
                         break;
                     case 3:
                         content_Adapter.setPriceZA(isPriceZA);
@@ -515,11 +576,16 @@ public class TaobaoContentFragment extends TitleFragment {
 
                         break;
                 }
+
                 hasNetData();
                 content_Adapter.notifyDataSetChanged();
                 Adapter.setSelectedPosition(position);
                 Adapter.notifyDataSetChanged();//布局中的控件也更新
-                manager.scrollToPositionWithOffset(1, ResourceHelper.Dp2Px(40));
+                if (CityGuideApplication.LAYOUT_CHANGE) {
+                    manager.scrollToPositionWithOffset(1, ResourceHelper.Dp2Px(40.5f));
+                } else {
+                    manager.scrollToPositionWithOffset(1, ResourceHelper.Dp2Px(40));
+                }
                 if (position != 3) {
                     isPriceZA = false;
                 }
@@ -542,7 +608,7 @@ public class TaobaoContentFragment extends TitleFragment {
                 if (Helper.isNotEmpty(objects)) {
                     View view = manager.findViewByPosition(mCurrentPosition + 1);
                     if (view != null) {
-                        if (view.getTop() - ResourceHelper.Dp2Px(contentDecoration / 2) <= mSuspensionHeight) {
+                        if (view.getTop() - ResourceHelper.Dp2Px(0.5f / 2) <= mSuspensionHeight) {
                             content_recycler_title.setVisibility(View.VISIBLE);
                             HeaderView.setVisibility(View.VISIBLE);
                             content_recycler_title.setY(0);
@@ -562,6 +628,9 @@ public class TaobaoContentFragment extends TitleFragment {
         content_Adapter.notifyDataSetChanged();
         Adapter.notifyDataSetChanged();
         gridview.addView(recycler_title_layout, gridview.getChildCount());
+        if (CityGuideApplication.LAYOUT_CHANGE) {
+            setWigetLine1dp();
+        }
     }
 
     private void changeImage(View view) {
@@ -578,11 +647,6 @@ public class TaobaoContentFragment extends TitleFragment {
             Params.put("sortBy", "priceAZ");
             isPriceZA = true;
         }
-    }
-
-    private void cancleRequest(RecyclerView recyclerview){
-        recyclerview.setFocusableInTouchMode(false);
-        recyclerview.requestFocus();
     }
 }
 

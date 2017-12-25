@@ -1,9 +1,20 @@
 package com.zhekouxingqiu.main.fragment;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
+import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.LogUtil;
 import com.flyco.tablayout.SlidingTabLayout;
@@ -16,19 +27,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import adapter.BaseCallFunctionBackListener;
 import adapter.TaobaoCategoryAdpter;
+import app.CityGuideApplication;
 import app.CommonData;
+import bean.MenuBean;
 import common.base.TitleFragment;
 
 import iconicfont.IconicFontUtil;
 import iconicfont.icon.CityGuideIcon;
+
 import com.zhekouxingqiu.main.activity.Taobao.SearchActivity;
+
 import so.bubu.lib.helper.NavigationHelper;
+
 import com.zhekouxingqiu.main.R;
+
+import so.bubu.lib.helper.ResourceHelper;
 import utils.InformationHelper;
+import utils.MyJsonUtil;
+import utils.dbUtils.DBHelper;
 import wiget.FatherViewPager;
+import wiget.ShowdowPopWindow;
+import wiget.TypeSelectWindow;
+import wiget.dragView.LabelSelectionItem;
 
 
 public class TaobaoFragment extends TitleFragment {
@@ -68,6 +93,30 @@ public class TaobaoFragment extends TitleFragment {
         taobaoCategoryAdpter = new TaobaoCategoryAdpter(getChildFragmentManager(), Params);
         fatherViewPager.setAdapter(taobaoCategoryAdpter);
         setSearchOnClick();
+        LinearLayout open_catetory_layout = (LinearLayout) findViewById(R.id.open_catetory);
+        final LinearLayout view = (LinearLayout) findViewById(R.id.categroy_tab);
+        final View anchor = findViewById(R.id.ic_main_content);
+
+//        anchor.bringToFront();
+//        categoryPopwindow.createPopWindow(anchor, fragment_content);
+        open_catetory_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                new ShowdowPopWindow(act).showPopupWindow(anchor);
+//                new TypeSelectWindow(act).showPopupWindow(anchor);
+
+//                ShowdowPopWindow.getInstance(act).showPopupWindow(anchor);
+                TypeSelectWindow.getInstance(act).showPopupWindow(anchor);
+            }
+        });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        ShowdowPopWindow.getInstance(act).setAnimationStyle(0);
+        TypeSelectWindow.getInstance(act).setAnimationStyle(0);
     }
 
     private String function = InformationHelper.GETTAOBAOITEMCATEGORIESBETA;
@@ -142,6 +191,4 @@ public class TaobaoFragment extends TitleFragment {
             }
         });
     }
-
-
 }

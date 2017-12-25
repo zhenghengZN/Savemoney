@@ -1,8 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="so.bubu.cityguide.sydney.place.ui.TaobaoFragment">
 
@@ -10,39 +10,58 @@
         android:id="@+id/ic_main_content"
         layout="@layout/fragment_common_top_main_v2" />
 
-
-    <com.flyco.tablayout.SlidingTabLayout
-        android:id="@+id/taobao_slidingTabLayout"
+    <LinearLayout
+        android:id="@+id/categroy_tab"
+        android:layout_below="@+id/ic_main_content"
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_top_height"
-        android:background="@android:color/white"
-        tl:tl_textSelectColor="@color/color_ff6f06"
-        tl:tl_indicator_color="@color/color_ff5000"
-        tl:tl_indicator_height="2dp"
-        tl:tl_textsize="15sp"
-        tl:tl_tab_padding="10dp"
-        tl:tl_textUnselectColor="@android:color/black"
-        tl:tl_underline_height="0.5dp"
-        tl:tl_underline_color="@color/color_d8d8d8"
-        />
+        android:orientation="horizontal">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/taobao_slidingTabLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_top_height"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            tl:tl_indicator_color="@color/color_ff5000"
+            tl:tl_indicator_height="2dp"
+            tl:tl_tab_padding="10dp"
+            tl:tl_textSelectColor="@color/color_ff6f06"
+            tl:tl_textUnselectColor="@android:color/black"
+            tl:tl_textsize="15sp"
+            tl:tl_underline_color="@color/color_d8d8d8"
+            tl:tl_underline_height="0.5dp" />
+
+        <LinearLayout
+            android:id="@+id/open_catetory"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_efcb95"
+                android:scaleType="fitStart" />
+        </LinearLayout>
+    </LinearLayout>
 
     <wiget.FatherViewPager
+        android:layout_below="@+id/categroy_tab"
         android:id="@+id/view_pager_recommend"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
-        />
+        android:overScrollMode="never" />
     <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/recycler_title"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:scrollbars="none"-->
-            <!-- -->
-            <!--android:background="@android:color/white" />-->
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/recycler_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:scrollbars="none"-->
+    <!-- -->
+    <!--android:background="@android:color/white" />-->
     <!--</FrameLayout>-->
 
-</LinearLayout>
+</RelativeLayout>

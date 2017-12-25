@@ -83,7 +83,7 @@ public class TypeAdapter extends BaseAdapter {
         }
         TaobaoCoupons.WidgetsBean.ObjectsBean objectsBean = subcategroies.getObjects().get(position);
         holder.subcategory_name.setText(objectsBean.getName());
-        GlideHelper.displayImageByResizeasBitmap(act, objectsBean.getPicUrl(), mWidth / 2, mWidth / 2, holder.subcategory_img);
+        GlideHelper.displayGridByResizeasBitmap(act, objectsBean.getPicUrl(), mWidth / 2, mWidth / 2, holder.subcategory_img);
 
         return convertView;
     }

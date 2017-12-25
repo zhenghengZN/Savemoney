@@ -24,9 +24,13 @@ import so.bubu.lib.helper.StatusBarUtil;
 
 public class SearchResultActivity extends TitleAppCompatActivity implements View.OnClickListener {
     private static final String TAG = SearchResultActivity.class.getSimpleName();
-
+    private static SearchResultActivity INSTANCE;
+    public  static SearchResultActivity getInstance(){
+       return INSTANCE;
+    }
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
+        INSTANCE = this;
         StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
         intent = getIntent();
         setContentView(R.layout.activity_search_result);
@@ -76,7 +80,7 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
         // MyFragment())效果相当
         // ft.addToBackStack("test");
 
-        ft.commit();
+        ft.commitAllowingStateLoss();
     }
 
 
@@ -93,6 +97,7 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
             if(parammap !=null) {
                 title = (String) parammap.get(CommonData.KEYWORD);
                 sub = (String) parammap.get(CommonData.SUBCATEGORY);
+
             }
         }
 
@@ -102,10 +107,21 @@ public class SearchResultActivity extends TitleAppCompatActivity implements View
             if (fragmentold != null) {
                 transaction.remove(fragmentold);
             }
-            transaction.commit();
+            transaction.commitAllowingStateLoss();
             this.intent = intent;
             initView();
         }
+    }
+
+
+    public void  changeContent(Intent intent){
+        FragmentTransaction transaction = fm.beginTransaction();
+        if (fragmentold != null) {
+            transaction.remove(fragmentold);
+        }
+        transaction.commitAllowingStateLoss();
+        this.intent = intent;
+        initView();
     }
 
     @Override

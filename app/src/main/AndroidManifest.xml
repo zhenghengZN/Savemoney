@@ -55,8 +55,7 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="ANDROID.PERMISSION.READ_PHONE_STATE"/>
-
+    <uses-permission android:name="ANDROID.PERMISSION.READ_PHONE_STATE" />
 
     <application
         android:name="app.CityGuideApplication"
@@ -71,7 +70,7 @@
             android:value="mm_119950409_20916506_70766512" />
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5a04fd02f43e485a9b0000f1" />
+            android:value="5a34c95f8f4a9d0ca300069e" />
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
@@ -80,7 +79,7 @@
             android:value="GlideModule" />
 
         <activity
-            android:name="com.zhekouxingqiu.main.activity.LoadingActivity"
+            android:name=".activity.LoadingActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,7 +91,7 @@
         <service android:name="com.avos.avoscloud.PushService" />
 
         <activity
-            android:name="com.zhekouxingqiu.main.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -109,16 +108,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.AboutAuthorActivity"
+            android:name=".activity.about.AboutAuthorActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.WeixinOpenActivity"
+            android:name=".activity.about.WeixinOpenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.WebViewActivity"
+            android:name=".activity.WebViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.Taobao.SearchActivity"
+            android:name=".activity.Taobao.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.alibaba.baichuan.android.trade.ui.activity.AlibcWebViewActivity"
@@ -127,42 +126,41 @@
             android:name="com.ali.auth.third.ui.LoginWebViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.SearchResultActivity"
-            android:label="@string/title_activity_search_result"
-            android:launchMode="singleTask" />
+            android:name=".activity.SearchResultActivity"
+            android:label="@string/title_activity_search_result" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.login.StartActivity"
+            android:name=".activity.login.StartActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.login.ForgetActivity"
+            android:name=".activity.login.ForgetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.login.RegisterActivity"
+            android:name=".activity.login.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.My.MessageActivity"
+            android:name=".activity.My.MessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.SettingActivity"
+            android:name=".activity.about.SettingActivity"
             android:label="@string/title_activity_setting"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.SupportActivity"
+            android:name=".activity.about.SupportActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.BindingPhoneActivity"
+            android:name=".activity.about.BindingPhoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.about.UserCallbackActivity"
+            android:name=".activity.about.UserCallbackActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.login.Login2Activity"
+            android:name=".activity.login.Login2Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.login.LoginActivity"
+            android:name=".activity.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name="com.zhekouxingqiu.main.activity.UserInfoActivity"
+            android:name=".activity.UserInfoActivity"
             android:label="@string/title_activity_user_info" />
         <activity
             android:name="utils.photopicker.PhotoPickerActivity"
@@ -181,7 +179,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zhekouxingqiu.main.activity.My.CropNewActivity"
+            android:name=".activity.My.CropNewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" >
             <intent-filter>
@@ -189,9 +187,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zhekouxingqiu.main.activity.BrowseRecordActivity"
-            android:label="@string/title_activity_browse_record" >
-        </activity>
+            android:name=".activity.BrowseRecordActivity"
+            android:label="@string/title_activity_browse_record" />
     </application>
 
 </manifest>

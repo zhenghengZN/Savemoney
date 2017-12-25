@@ -1,10 +1,13 @@
 package com.zhekouxingqiu.main.activity.login;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -19,6 +22,7 @@ import push.PushHelper;
 
 import com.zhekouxingqiu.main.R;
 
+import so.bubu.lib.helper.DelayTaskHelper;
 import so.bubu.lib.helper.InputMethodHelper;
 import so.bubu.lib.helper.LogHelper;
 import so.bubu.lib.helper.NetWorkHelper;
@@ -31,6 +35,7 @@ import utils.SharedPreferencesHelp;
 import utils.StringUtils;
 import utils.UserActionListener;
 import utils.UserHelper;
+import wiget.TimeCount;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -94,7 +99,10 @@ public class LoginActivity extends AppCompatActivity {
 
         edt_mail.setHint(ResourceHelper.getString(R.string.input_code));
         edt_name.setHint(ResourceHelper.getString(R.string.mobilephone_num));
-
+        edt_name.setFocusable(true);
+        edt_name.setFocusableInTouchMode(true);
+        edt_name.requestFocus();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         initEvent();
     }
 
@@ -112,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 if (checkMobilePhoneNumber()) {
                     onRequestMobilePhoneCode();
+                    new TimeCount(LoginActivity.this,60000,btn_code).start();
                 }
             }
         });

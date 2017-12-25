@@ -71,6 +71,23 @@ public class InformationHelper extends BaseNetHelper {
         ;
     }
 
+    private static final String ADDBROWSERECORD = "addBrowseRecord";
+
+    public void addBrowseRecord(String type, String referenceId, String url, final CallFunctionBackListener listener) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("type", type);
+        if(referenceId != null && referenceId.isEmpty()) {
+            params.put("referenceId", referenceId);
+        }
+        params.put("url", url);
+        LeanCloudService.callFunctionInBackground(ADDBROWSERECORD, params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object o, AVException e) {
+                handleAvCallResponseWithJsonToList(o, e, listener);
+            }
+        });
+    }
+
     /**
      * 获取淘宝分类
      */

@@ -379,6 +379,20 @@ public class GlideHelper {
                 .into(targetView);
     }
 
+    public static void displayGridByResizeasBitmap(Context context, String url, int targetWidth, int targetHeight, ImageView targetView) {
+
+        Glide
+                .with(context)
+                .load(url)
+//                .crossFade()
+                .asBitmap()
+                .override(targetWidth, targetHeight)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .centerCrop()
+//                .animate(animationObject)
+                .into(targetView);
+    }
+
     /**
      * 跳过内存缓存
      *

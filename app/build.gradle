@@ -73,7 +73,9 @@ android {
 //        huajun{}
 //        baoruan{}
 //        haixin{}
-          sougou{}
+//          sougou{}
+        tencent{}
+        chuizi{}
     }
     productFlavors.all {
         flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: "name"]

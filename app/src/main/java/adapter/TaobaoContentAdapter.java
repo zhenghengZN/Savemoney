@@ -15,10 +15,13 @@ import com.kevin.wraprecyclerview.BaseRecyclerAdapter;
 
 import java.util.LinkedList;
 
+import app.CityGuideApplication;
 import bean.TaobaoCoupons;
 import common.CommonMethod;
 import so.bubu.lib.helper.ResourceHelper;
+
 import com.zhekouxingqiu.main.R;
+
 import utils.GlideHelper;
 
 /**
@@ -40,7 +43,7 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoCoupons.Obje
         WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         // 计算显示大小
         mGridWidth = wm.getDefaultDisplay().getWidth() / 2;
-        LogUtil.log.e("mGridWidth","mGridWidth" + mGridWidth + "  ," + ResourceHelper.Dp2Px(280) + " ,"  );
+        LogUtil.log.e("mGridWidth", "mGridWidth" + mGridWidth + "  ," + ResourceHelper.Dp2Px(280) + " ,");
 
 //        picWidth = mGridWidth - ResourceHelper.Dp2Px(4);
     }
@@ -51,13 +54,15 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoCoupons.Obje
         if (mHeaderView != null && viewType == TYPE_HEADER) {
             return new ViewHolder(mHeaderView);
         }
-
-//        if(viewType == TYPE_NORMAL) {
-//            view = ResourceHelper.loadLayout(mContext, R.layout.taobao_item, parent, false);
-//        }
-        LogUtil.log.e("TaobaoContentAdapter", "1");
-        if (viewType == TYPE_GRID) {
-            view = ResourceHelper.loadLayout(mContext, R.layout.taobao_item2, parent, false);
+        if (CityGuideApplication.LAYOUT_CHANGE) {
+            if (viewType == TYPE_NORMAL) {
+                view = ResourceHelper.loadLayout(mContext, R.layout.taobao_item, parent, false);
+            }
+        } else {
+            LogUtil.log.e("TaobaoContentAdapter", "1");
+            if (viewType == TYPE_GRID) {
+                view = ResourceHelper.loadLayout(mContext, R.layout.taobao_item2, parent, false);
+            }
         }
         ViewHolder holder = new ViewHolder(view);
         view.setOnClickListener(this);
@@ -66,7 +71,7 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoCoupons.Obje
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        LogUtil.log.e("haschage","haschage");
+        LogUtil.log.e("haschage", "haschage");
         if (getItemViewType(position) == TYPE_HEADER) {
             return;
         }
@@ -156,11 +161,16 @@ public class TaobaoContentAdapter extends BaseRecyclerAdapter<TaobaoCoupons.Obje
 //        if (mHeaderView == null) {
 //            return TYPE_NORMAL;
 //        }
+
         LogUtil.log.e("TaobaoContentAdapter", "2");
         if (getHeaderView() != null && position == 0) {
             return TYPE_HEADER;
         } else {
-            return TYPE_GRID;
+            if (CityGuideApplication.LAYOUT_CHANGE) {
+                return TYPE_NORMAL;
+            } else {
+                return TYPE_GRID;
+            }
         }
 
 

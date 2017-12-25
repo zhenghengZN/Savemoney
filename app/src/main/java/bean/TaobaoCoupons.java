@@ -42,7 +42,7 @@ public class TaobaoCoupons {
     }
 
     public static class ObjectsBean implements Serializable {
-        public ObjectsBean(String category, int couponAmount, String biz30Day, String title, String platform, String couponShareUrl, double finalPrice, double discountPrice , String picUrl) {
+        public ObjectsBean(String category, int couponAmount, String biz30Day, String title, String platform, String couponShareUrl, double finalPrice, double discountPrice , String picUrl, String id) {
             this.category = category;
             this.couponAmount = couponAmount;
             this.biz30Day = biz30Day;
@@ -52,6 +52,7 @@ public class TaobaoCoupons {
             this.finalPrice = finalPrice;
             this.discountPrice = discountPrice;
             this.picUrl = picUrl;
+            this.id = id;
         }
 
         public ObjectsBean(){
@@ -299,7 +300,7 @@ public class TaobaoCoupons {
              * picUrl : https://gw.alicdn.com/tfs/TB1VDjOQFXXXXcHXpXXXXXXXXXX-350-350.jpg_120x120Q75s100.jpg
              * url : https://s.click.taobao.com/2HPB2Zw
              */
-
+            private String aid;
             private String picUrl;
             private String url;
             private String name;
@@ -307,6 +308,14 @@ public class TaobaoCoupons {
             private float startXPercentage;
             private float startYPercentage;
             private float widthPercentage;
+
+            public String getAid() {
+                return aid;
+            }
+
+            public void setAid(String aid) {
+                this.aid = aid;
+            }
 
             public float getStartXPercentage() {
                 return startXPercentage;
